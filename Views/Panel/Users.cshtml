@@ -1,0 +1,122 @@
+﻿@{
+    Layout = "_PanelLayout.cshtml";
+    ViewData["Title"] = "Пользователи";
+}
+@model IEnumerable<User>
+
+
+<div class="breadcrumb-main">
+    <div class="breadcrumb-container clearfix">
+        <h1 class="page-title">Панель управления</h1>
+        <ul class="breadcrumb">
+            <li><a asp-action="Index" asp-controller="Panel">Главная</a></li>
+            <li><a asp-action="Users" asp-controller="Panel">Пользователи</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="row g-4 py-5 row-cols-1">
+
+
+    <a asp-controller="Panel" asp-action="CreateUser" class="btn btn-primary">Добавить нового пользователя</a>
+
+
+    <!-- =======================================================================    -->
+
+    <form method="get" asp-action="Users" asp-controller="Panel" class="input-group align-items-center">
+        <label for="searchBy" class="fw-bold me-2 mb-0">Искать по:</label>
+
+        <select name="searchBy" id="searchBy" class="form-control form-select" style="max-width: 200px;">
+            <option value="name">Имени</option>
+            <option value="email">Email</option>
+            <option value="phone">Телефону</option>
+        </select>
+
+        <input type="text" name="search" value="@Context.Request.Query["search"]"
+               placeholder="Введите значение..." class="form-control input-lg mx-2" />
+
+        <span class="btn-search input-group-btn">
+            <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-search"></i> Найти</button>
+        </span>
+    </form>
+
+
+    <!-- =======================================================================    -->
+
+
+    <div class="p-5 mb-4 bg-light rounded-3 ovx table-responsive">
+        <table class="table">
+            <tr><th>Email</th><th>Номер телефона</th><th>Год рождения</th><th></th><th></th><th></th></tr>
+            @foreach (var user in Model)
+            {
+                @*Обязательно прописываем данный атрибут
+            С помощью него мы удалим данную строку,
+            используя JavaScript*@
+                <tr data-rowid="@user.Id">
+                    <td>@user.Email</td>
+                    <td>@user.PhoneNumber</td>
+                    <td>@user.Year</td>
+                    <td><a class="btn btn-sm btn-primary" asp-action="EditRole" asp-controller="Panel" asp-route-userid="@user.Id">Роль</a></td>
+                    <td><a class="btn btn-sm btn-primary" asp-action="EditUser" asp-controller="Panel" asp-route-userId="@user.Id">Изменить</a></td>
+                    <td>
+                        @*Обязательно прописываем onClick и метод, который будет обрабатывать клик*@
+                        <button onclick="deleteUser('@user.Id')" class="btn btn-sm btn-danger">Удалить</button>
+                    </td>
+                </tr>
+            }
+        </table>
+
+
+        <div class="text-center">
+            @await Html.PartialAsync("_Pages", Model)
+        </div>
+
+
+        @await Html.PartialAsync("_Modal", "Удалить выбранного пользователя?")
+
+
+        @section Scripts {
+            <script>
+                async function deleteUser(userId) {
+
+
+                    const btnYes = document.getElementById('btn-Yes');
+                    const btnNo = document.getElementById('btn-No');
+
+
+                    $('#confirmModal').modal('show');
+
+
+                    //Если нажали да, удаляем
+                    btnYes.onclick = async () => {
+                        const deleteItem = await fetch(`/panel/DeleteUser?id=${userId}`, { method: 'DELETE' })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok');
+                                }
+                                //Удаляем строку
+                                document.querySelector("tr[data-rowid='" + userId + "']").remove();
+                                //Закрываем модальное окно
+                                $('#confirmModal').modal('hide');
+                            })
+                            .catch(error => {
+                                console.error('There was a problem with the fetch operation:', error);
+                                // Обработка ошибки удаления
+                            });
+                    }
+                    //Если нажали нет, скрываем
+                    btnNo.onclick = () => {
+                        $('#confirmModal').modal('hide');
+                    }
+                }
+            </script>
+        }
+
+
+    </div>
+</div>
+
+
+
+
