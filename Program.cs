@@ -3,6 +3,8 @@ using Lesson_22_Pizza_Star.Data.Helpers;
 using Lesson_22_Pizza_Star.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Pizza_Star.Interfaces;
+using Pizza_Star.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +45,8 @@ builder.Services.AddSingleton(emailConfig!);
 //Подключаем сервис для отправки почты
 builder.Services.AddScoped<EmailSender>();
 
+// подключаем репозиторий категорий в сервисы...
+builder.Services.AddScoped<ICategory, CategoryRepository>();
 
 //Время существования токена, для восстановления пароля - 1 час.
 builder.Services.Configure<DataProtectionTokenProviderOptions>(opts => opts.TokenLifespan = TimeSpan.FromHours(1));

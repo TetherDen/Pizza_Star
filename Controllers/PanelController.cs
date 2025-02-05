@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Pizza_Star.Interfaces;
+using Pizza_Star.Models;
+using Pizza_Star.Repository;
 using Pizza_Star.VIewModel;
 
 namespace Lesson_22_Pizza_Star.Controllers
@@ -16,11 +19,13 @@ namespace Lesson_22_Pizza_Star.Controllers
 
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ICategory _category;
 
-        public PanelController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        public PanelController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, ICategory category)
         {
             _userManager = userManager;
             _roleManager = roleManager;
+            _category = category;
         }
 
         [Route("/panel")]
@@ -245,12 +250,30 @@ namespace Lesson_22_Pizza_Star.Controllers
 
         //   *** Categories - CRUD   ***
 
-        [Route("/panel/categories")]
-        [HttpGet]
-        public IActionResult Categories()
-        {
-            return View();
-        }
+        //[Route("/panel/categories")]
+        //[HttpGet]
+        //public IActionResult Categories()
+        //{
+        //    return View();
+        //}
+
+
+        //[Route("/panel/categories")]
+        //[HttpGet]
+        //public async Task<IActionResult> Categories(QueryOptions options, string? search)
+        //{
+        //    IQueryable<Category> categories = _category.GetAll();
+
+        //    if (!string.IsNullOrWhiteSpace(search))
+        //    {
+        //        search = search.ToLower();
+        //        categories = categories.Where(c => c.Name.ToLower().Contains(search));
+        //    }
+
+        //    var pagedList = new PagedList<Category>(categories, options);
+        //    return View(pagedList);
+        //}
+
 
 
         [Route("/panel/dishes")]

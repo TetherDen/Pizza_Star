@@ -1,0 +1,48 @@
+﻿@using Pizza_Star.VIewModel
+@model CategoryViewModel
+@{
+    Layout = "~/Views/Panel/_PanelLayout.cshtml";
+    ViewData["Title"] = "Изменить категорию";
+}
+<div class="d-flex justify-content-center" style="padding: 20px 0;">
+    <form asp-action="Edit" asp-controller="Category" method="post" enctype="multipart/form-data" style="width: 100%; max-width: 500px;">
+        <input asp-for="Id" type="hidden" />
+        <h2 class="text-center mb-4">Изменить категорию</h2>
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Название</label>
+            <input asp-for="Name" class="form-control" required />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Описание</label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.ExistingImage))
+        {
+            <div class="mb-3">
+                <label class="form-label">Текущее изображение</label>
+                <img src="@Model.ExistingImage" alt="Текущее изображение" class="img-fluid mb-2" />
+            </div>
+        }
+
+        <div class="mb-3">
+            <label asp-for="ImageFile" class="form-label">Новое изображение</label>
+            <input asp-for="ImageFile" class="form-control" type="file" />
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <a asp-action="Categories" class="btn btn-secondary">Отменить</a>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

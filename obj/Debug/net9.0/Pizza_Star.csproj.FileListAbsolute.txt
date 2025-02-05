@@ -163,3 +163,4 @@ C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\refint\
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\Pizza_Star.pdb
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\Pizza_Star.genruntimeconfig.cache
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\ref\Pizza_Star.dll
+C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\Pizza_Star.sourcelink.json

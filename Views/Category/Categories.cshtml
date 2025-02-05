@@ -1,0 +1,91 @@
+﻿@using Lesson_22_Pizza_Star.Models.Pages
+@using Pizza_Star.Models
+@{
+    Layout = "~/Views/Panel/_PanelLayout.cshtml";
+    ViewData["Title"] = "Категории";
+}
+@model PagedList<Category>
+
+<div class="breadcrumb-main">
+    <div class="breadcrumb-container clearfix">
+        <h1 class="page-title">Панель управления</h1>
+        <ul class="breadcrumb">
+            <li><a asp-action="Index" asp-controller="Panel">Главная</a></li>
+            <li><a asp-action="Categories" asp-controller="Panel">Категории</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="row g-4 py-5 row-cols-1">
+    <a asp-controller="Category" asp-action="Create" class="btn btn-primary">Добавить новую категорию</a>
+
+    <form method="get" asp-action="Categories" asp-controller="Category" class="input-group align-items-center">
+        <label for="searchBy" class="fw-bold me-2 mb-0">Искать по:</label>
+        <input type="text" name="search" value="@Context.Request.Query["search"]"
+               placeholder="Введите название..." class="form-control input-lg mx-2" />
+        <span class="btn-search input-group-btn">
+            <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-search"></i> Найти</button>
+        </span>
+    </form>
+
+    <div class="p-5 mb-4 bg-light rounded-3 ovx table-responsive">
+        <table class="table">
+            <tr><th>Название</th><th>Описание</th><th>Дата публикации</th><th></th><th></th></tr>
+            @foreach (var category in Model)
+            {
+                <tr data-rowid="@category.Id">
+                    <td>@category.Name</td>
+                    <td>@category.Description</td>
+                    <td>@category.DateOfPublication.ToString("dd.MM.yyyy")</td>
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@category.Id" class="btn btn-sm btn-primary">Изменить</a>
+                    </td>
+
+                    <td>
+                        <button onclick="deleteCategory('@category.Id')" class="btn btn-sm btn-danger">Удалить</button>
+                    </td>
+                </tr>
+            }
+        </table>
+
+        <div class="text-center">
+            @await Html.PartialAsync("_Pages", Model)
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("_Modal", "Удалить выбранную категорию?")
+
+<script>
+    async function deleteCategory(categoryId) {
+        const btnYes = document.getElementById('btn-Yes');
+        const btnNo = document.getElementById('btn-No');
+
+        $('#confirmModal').modal('show'); // Открытие модального окна
+
+        // Если нажали "Да", отправляем запрос на удаление
+        btnYes.onclick = async () => {
+            try {
+                const response = await fetch(`/Category/DeleteCategory?id=${categoryId}`, { method: 'DELETE' });
+                if (!response.ok) {
+                    throw new Error('Ошибка сети');
+                }
+
+                // Удаляем строку таблицы
+                document.querySelector("tr[data-rowid='" + categoryId + "']").remove();
+
+                // Закрываем модальное окно
+                $('#confirmModal').modal('hide');
+            } catch (error) {
+                console.error('Ошибка при удалении:', error);
+                alert('Ошибка при удалении категории!');
+            }
+        };
+
+        // Если нажали "Нет", скрываем модальное окно
+        btnNo.onclick = () => {
+            $('#confirmModal').modal('hide');
+        };
+    }
+</script>
