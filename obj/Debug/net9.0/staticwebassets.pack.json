@@ -549,6 +549,22 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
     },
     {
+      "Id": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\productFiles\\drink.png",
+      "PackagePath": "staticwebassets\\productFiles\\drink.png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\productFiles\\e97d6493-e7fb-44cd-8745-18a39adf4ced9436.png",
+      "PackagePath": "staticwebassets\\productFiles\\e97d6493-e7fb-44cd-8745-18a39adf4ced9436.png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\productFiles\\pizza.png",
+      "PackagePath": "staticwebassets\\productFiles\\pizza.png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\productFiles\\salad.png",
+      "PackagePath": "staticwebassets\\productFiles\\salad.png"
+    },
+    {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Pizza_Star.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },

@@ -37,14 +37,15 @@ namespace Pizza_Star.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Editor")]
         [HttpGet]
         public IActionResult Create()
         {
             return View(new CategoryViewModel());
         }
 
-        [Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "Admin, Editor")]
         [AutoValidateAntiforgeryToken]
         [HttpPost]
         public async Task<IActionResult> Create(CategoryViewModel model)
@@ -57,15 +58,6 @@ namespace Pizza_Star.Controllers
                     Description = model.Description,
                     DateOfPublication = DateTime.Now
                 };
-
-                //if (model.ImageFile != null)
-                //{
-                //    using (var memoryStream = new MemoryStream())
-                //    {
-                //        await model.ImageFile.CopyToAsync(memoryStream);
-                //        category.Image = Convert.ToBase64String(memoryStream.ToArray()); // Преобразуем изображение в строку base64
-                //    }
-                //}
 
                 if (model.ImageFile != null)
                 {
@@ -81,11 +73,26 @@ namespace Pizza_Star.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
-        //[ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Editor")]
+        //[ValidateAntiForgeryToken]    // <<-- TODO надо фикс в представлении где JS в модальном окне? или где не помню уже....
         [HttpDelete]
         public async Task<IActionResult> DeleteCategory(int id)
         {
+            var category = await _category.GetByIdAsync(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            if (!string.IsNullOrEmpty(category.Image))
+            {
+                var fullPath = Path.Combine(_environment.WebRootPath, category.Image);
+                if (System.IO.File.Exists(fullPath))
+                {
+                    System.IO.File.Delete(fullPath);
+                }
+            }
+
             var result = await _category.DeleteAsync(id);
             if (result)
             {
@@ -95,7 +102,7 @@ namespace Pizza_Star.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Editor")]
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -107,16 +114,16 @@ namespace Pizza_Star.Controllers
 
             var viewModel = new CategoryViewModel
             {
-                Id = category.Id ?? 0, // тк Id Category может быть null
+                Id = category.Id ?? 0, // тк Id Category может быть null ?
                 Name = category.Name,
                 Description = category.Description,
-                ExistingImage = category.Image
+                ExistingImage = string.IsNullOrEmpty(category.Image) ? null : $"/{category.Image}"
             };
 
             return View(viewModel);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Editor")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(CategoryViewModel model)
@@ -134,7 +141,7 @@ namespace Pizza_Star.Controllers
 
                 if (model.ImageFile != null)
                 {
-                    // Удаляем старое изображение перед загрузкой нового
+                    // удаляем старое изображение перед загрузкой нового
                     await DeleteOldImageAsync(category.Image);
                     category.Image = await SaveImageAsync(model.ImageFile);
                 }
@@ -147,21 +154,17 @@ namespace Pizza_Star.Controllers
 
 
 
-
-
-
-
         private async Task<string> SaveImageAsync(IFormFile imageFile)
         {
             if (imageFile == null || imageFile.Length == 0)
+            {
                 return null;
+            }
 
             var uniqueFileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;
             var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "categories");
 
-            // Создаем папку, если она не существует
             Directory.CreateDirectory(uploadsFolder);
-
             var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
             using (var fileStream = new FileStream(filePath, FileMode.Create))

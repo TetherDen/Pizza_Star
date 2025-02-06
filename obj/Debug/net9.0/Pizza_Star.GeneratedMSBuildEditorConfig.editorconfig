@@ -56,6 +56,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Dish/CreateProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzaFxDcmVhdGVQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Dish/Dishes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzaFxEaXNoZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Dish/EditProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzaFxFZGl0UHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -66,10 +78,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Panel/CreateUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcQ3JlYXRlVXNlci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Panel/Dishes.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxcRGlzaGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Panel/EditRole.cshtml]
@@ -110,6 +118,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Shared/_ScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Shared/_SearchOptions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TZWFyY2hPcHRpb25zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Shared/_StylesPartial.cshtml]

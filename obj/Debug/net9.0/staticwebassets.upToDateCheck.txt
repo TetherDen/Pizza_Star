@@ -203,3 +203,7 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\productFiles\drink.png
+wwwroot\productFiles\e97d6493-e7fb-44cd-8745-18a39adf4ced9436.png
+wwwroot\productFiles\pizza.png
+wwwroot\productFiles\salad.png

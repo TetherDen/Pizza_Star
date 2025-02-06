@@ -16,7 +16,7 @@ namespace Pizza_Star.VIewModel
         [Display(Name = "Изображение")]
         public IFormFile? ImageFile { get; set; }
 
-        // Для отображения существующего изображения при редактировании
+        // для отображения существующего изображения при редактировании
         public string? ExistingImage { get; set; }
     }
 }

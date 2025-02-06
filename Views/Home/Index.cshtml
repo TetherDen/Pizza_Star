@@ -1,8 +1,150 @@
-﻿@{
+﻿@using Lesson_22_Pizza_Star.Models.Pages
+@using Pizza_Star.Models
+@model PagedList<Product>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@Html.AntiForgeryToken()
+
+<br />
+<div class="container">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="@product.Image" class="card-img-top" alt="@product.Name" style="object-fit: contain; width: 100%; height: 200px;">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <!-- прод. нейм и вес -->
+                            <div>
+                                <h4 class="card-title">@product.Name</h4>
+                                <h6 class="card-text">
+                                    ₴@product.Price (@product.Weight.ToString("0.0") грамм)
+                                </h6>
+                            </div>
+                            <!-- звезды и количество голосов -->
+                            <div class="d-flex flex-column align-items-end">
+                                <span class="rating" data-product-id="@product.Id" data-initial-rating="@product.AverageRating">
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        <span class="fa fa-stack star" data-value="@i" style="cursor: pointer;">
+                                            <i class="fa fa-star fa-stack-2x @(i <= product.AverageRating ? "text-warning" : "text-secondary")"></i>
+                                            <i class="fa fa-star-o fa-stack-2x text-secondary"></i>
+                                        </span>
+                                    }
+                                    <span class="small text-muted rating-count">(@product.RatingCount)</span>
+                                </span>
+                            </div>
+
+
+                        </div>
+
+                        <!-- Кнопка Корзины Тут -->
+                        <a href="@Url.Action("Details", "Product", new { id = product.Id })"
+                           class="btn btn-primary mt-auto align-self-end">
+                            Добавить в Корзину
+                        </a>
+
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
+
+<div class="text-center">
+    @await Html.PartialAsync("_Pages", Model)
+</div>
+
+
+<!-- Скрипт для оценок продукта по звездочкам -->
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Обрабатываем все контейнеры с рейтингом
+            document.querySelectorAll('.rating').forEach(ratingContainer => {
+                const stars = ratingContainer.querySelectorAll('.star');
+                const initialRating = parseFloat(ratingContainer.dataset.initialRating);
+
+                // Инициализация звезд
+                updateStarsVisual(stars, initialRating);
+
+                // Обработчики событий для звезд
+                stars.forEach(star => {
+                    star.addEventListener('mouseover', function() {
+                        const value = parseInt(this.dataset.value);
+                        highlightStars(stars, value);
+                    });
+
+                    star.addEventListener('mouseout', function() {
+                        updateStarsVisual(stars, initialRating);
+                    });
+
+                    star.addEventListener('click', function() {
+                        const productId = ratingContainer.dataset.productId;
+                        const ratingValue = parseInt(this.dataset.value);
+                        sendRating(productId, ratingValue);
+                    });
+                });
+            });
+        });
+
+        async function sendRating(productId, rating) {
+            const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+            try {
+                const response = await fetch('/Home/Rate', {
+                    method: 'POST',
+                    headers: {
+                        'RequestVerificationToken': token
+                    },
+                    body: new URLSearchParams({
+                        productId: productId,
+                        rating: rating
+                    })
+                });
+
+                if (!response.ok) throw new Error('Ошибка сети');
+
+                const data = await response.json();
+                if (data.success) {
+                    const ratingContainer = document.querySelector(`.rating[data-product-id="${productId}"]`);
+                    ratingContainer.dataset.initialRating = data.newRating;
+
+                    // Обновляем визуальное отображение
+                    updateStarsVisual(ratingContainer.querySelectorAll('.star'), data.newRating);
+
+                    // Обновляем счетчик голосов
+                    const countElement = ratingContainer.querySelector('.rating-count');
+                    if (countElement) {
+                        countElement.textContent = `(${data.ratingCount})`;
+                    }
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert('Авторизуйтесь что-бы оставить оценку...');  // <<-- TODO алерт убрать или сделать красиво
+            }
+        }
+
+        function highlightStars(stars, upTo) {
+            stars.forEach((star, index) => {
+                const icon = star.querySelector('.fa-star');
+                icon.classList.toggle('text-warning', index < upTo);
+                icon.classList.toggle('text-secondary', index >= upTo);
+            });
+        }
+
+        function updateStarsVisual(stars, currentRating) {
+            const roundedRating = Math.round(currentRating);
+            stars.forEach((star, index) => {
+                const icon = star.querySelector('.fa-star');
+                icon.classList.toggle('text-warning', index < roundedRating);
+                icon.classList.toggle('text-secondary', index >= roundedRating);
+            });
+        }
+    </script>
+}

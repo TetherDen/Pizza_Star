@@ -1,4 +1,5 @@
 ﻿using Lesson_22_Pizza_Star.Data;
+using Lesson_22_Pizza_Star.Models.Pages;
 using Microsoft.EntityFrameworkCore;
 using Pizza_Star.Interfaces;
 using Pizza_Star.Models;
@@ -17,6 +18,33 @@ namespace Pizza_Star.Repository
         {
             return _context.Categories;
         }
+
+
+
+
+
+
+        public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
+        {
+            return await _context.Categories.AsNoTracking().ToListAsync();
+        }
+
+        public PagedList<Category> GetAllCategories(QueryOptions options)
+        {
+            return new PagedList<Category>(_context.Categories, options);
+        }
+
+        //public async Task<List<Category>> GetAllCategoriesAsync()
+        //{
+        //    return await _context.Categories.ToListAsync();
+        //}
+
+
+
+
+
+
+
 
         public async Task<Category?> GetByIdAsync(int id)
         {
@@ -51,5 +79,9 @@ namespace Pizza_Star.Repository
         {
             return await _context.Categories.AnyAsync(c => c.Id == id);
         }
+
+
+
+
     }
 }

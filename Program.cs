@@ -52,6 +52,12 @@ builder.Services.AddScoped<ICategory, CategoryRepository>();
 builder.Services.Configure<DataProtectionTokenProviderOptions>(opts => opts.TokenLifespan = TimeSpan.FromHours(1));
 
 
+//===========================
+
+builder.Services.AddScoped<ICategory, CategoryRepository>();
+builder.Services.AddScoped<IProduct, ProductRepository>();
+
+
 var app = builder.Build();
 
 
@@ -62,7 +68,23 @@ using (var scope = app.Services.CreateScope())
     {
         var userManager = services.GetRequiredService<UserManager<User>>();
         var rolesManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-        await DbInit.InitializeAsync(userManager, rolesManager);
+
+
+        //=====================================================================
+
+        // »нинциализаци€ базы данных тестовыми данными
+
+        // PS после инициалзиии закоменти код, иначе  при каждом запуске  приложени€ будут обнул€етс€ данные которые там не инициализиовраоны
+        // такие как оценки товаров - удал€ютс€ в бд при перезапуске апликейшена...
+
+        //await DbInit.InitializeAsync(userManager, rolesManager);
+
+        //var applicationContext = services.GetRequiredService<ApplicationContext>();
+        //await DbInit.InitializeContentAsync(applicationContext);
+
+        //await DbInit.CreateSeedDataAsync(applicationContext, categories: new int[] { 1, 2, 3});
+
+        //=====================================================================
     }
     catch (Exception ex)
     {

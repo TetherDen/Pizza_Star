@@ -248,7 +248,7 @@ namespace Lesson_22_Pizza_Star.Controllers
 
 
 
-        //   *** Categories - CRUD   ***
+        //  *** Эти действия ниже вынести в другие контроллеры и потом убрать ***
 
         //[Route("/panel/categories")]
         //[HttpGet]
@@ -276,12 +276,12 @@ namespace Lesson_22_Pizza_Star.Controllers
 
 
 
-        [Route("/panel/dishes")]
-        [HttpGet]
-        public IActionResult Dishes()
-        {
-            return View();
-        }
+        //[Route("/panel/dishes")]
+        //[HttpGet]
+        //public IActionResult Dishes()
+        //{
+        //    return View();
+        //}
 
 
         [Authorize(Roles = "Admin")]

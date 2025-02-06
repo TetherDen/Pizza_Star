@@ -1,4 +1,6 @@
-﻿using Pizza_Star.Models;
+﻿using Lesson_22_Pizza_Star.Models.Pages;
+using Pizza_Star.Models;
+using System.Collections;
 
 namespace Pizza_Star.Interfaces
 {
@@ -10,5 +12,12 @@ namespace Pizza_Star.Interfaces
         Task EditAsync(Category category);
         Task<bool> DeleteAsync(int id);
         Task<bool> ExistsAsync(int id);
+
+        PagedList<Category> GetAllCategories(QueryOptions options);
+        Task<IEnumerable<Category>> GetAllCategoriesAsync();
+
+        //Task<IEnumerable> GetAllCategories();
+
+        //Task<List<Category>> GetAllCategoriesAsync();
     }
 }
