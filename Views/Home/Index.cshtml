@@ -27,8 +27,9 @@
 <div class="container">
 
     <!-- TODO Блок Категория вынести бы в частичное представленеие... -->
+    <!-- TODO Добавить кнопку Sort и сортировка по нажатию чтобы можно было сразу выбрать размер страницы -->
 
-    <!-- Категория -->
+    <!-- Сортировка -->
     <div class="category-info mb-2">   <!-- margin bottom -2, между панельками пока что...  -->
         <div class="row">
             <div class="col-sm-2 col-xs-5 category-list-grid">
@@ -117,7 +118,7 @@
                             <!-- продукт нейм и вес -->
                             <div>
                                 <h4 class="card-title">@product.Name</h4>
-                                <h6 class="card-text mb-1">
+                                <h6 class="card-text mb-2">
                                     ₴@product.Price (@product.Weight.ToString("0.0") грамм)
                                 </h6>
                             </div>
