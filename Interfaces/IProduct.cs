@@ -14,7 +14,8 @@ namespace Pizza_Star.Interfaces
 
         // =============  my new methods  =============
 
-        PagedList<Product> GetAllProductsWithRelations(QueryOptions options);
+        //PagedList<Product> GetAllProductsWithRelations(QueryOptions options);
+        PagedList<Product> GetAllProductsWithRelations(QueryOptions options, string? sortBy);
 
         //===================================================
 

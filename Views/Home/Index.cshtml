@@ -4,18 +4,101 @@
 
 @{
     ViewData["Title"] = "Home Page";
+
+    var baseUrl = Url.Action("Index", "Home");
+    var currentSort = Context.Request.Query["sortBy"];
+    var currentPageSize = Context.Request.Query["PageSize"];
 }
 
 @Html.AntiForgeryToken()
 
+<!-- TODO Костыль фикс  стилями  неровность панелки  сортировки и поиска ( немного выпирали)... надо сделать норм-->
+<style>
+    .category-info {
+        margin-right: 0;
+        margin-left: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+</style>
+
+
 <br />
 <div class="container">
 
+    <!-- TODO Блок Категория вынести бы в частичное представленеие... -->
+
+    <!-- Категория -->
+    <div class="category-info mb-2">   <!-- margin bottom -2, между панельками пока что...  -->
+        <div class="row">
+            <div class="col-sm-2 col-xs-5 category-list-grid">
+                <div class="btn-group btn-group-sm">
+                    <button type="button" id="grid-view" class="btn btn-default active"
+                            data-toggle="tooltip" title="Grid">
+                        <i class="icon-grid"></i>
+                    </button>
+                    <button type="button" id="list-view" class="btn btn-default"
+                            data-toggle="tooltip" title="List">
+                        <i class="icon-list"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-7 category-compare">
+                <div class="form-group">
+                    <a href="category.html#" id="compare-total" class="btn btn-link">
+                        Product Compare (0)
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-7 col-xs-12 category-sorting">
+                <div class="sort-cat">
+                    <div class="text-category-sort">
+                        <label class="input-group-addon" for="input-sort">Sort By:</label>
+                    </div>
+                    <div class="select-cat-sort">
+                        <select id="input-sort" class="form-control" onchange="location = this.value;">
+                            <option value="@baseUrl" selected="@(string.IsNullOrEmpty(currentSort) ? "selected" : null)">Default</option>
+                            <option value="@($"{baseUrl}?sortBy=Name")" selected="@(currentSort == "Name" ? "selected" : null)">Name (A - Z)</option>
+                            <option value="@($"{baseUrl}?sortBy=-Name")" selected="@(currentSort == "-Name" ? "selected" : null)">Name (Z - A)</option>
+                            <option value="@($"{baseUrl}?sortBy=Price")" selected="@(currentSort == "Price" ? "selected" : null)">Price (Low &gt; High)</option>
+                            <option value="@($"{baseUrl}?sortBy=-Price")" selected="@(currentSort == "-Price" ? "selected" : null)">Price (High &gt; Low)</option>
+
+                            <!-- СОртировку по рейтингу надо сделать, а модель - у нас нету поля модель у продукта? значит модель убрать потом... -->
+
+@*                          <option value="@($"{baseUrl}?sortBy=Rating")" selected="@(currentSort == "Rating" ? "selected" : null)">Rating (Highest)</option>
+                            <option value="@($"{baseUrl}?sortBy=-Rating")" selected="@(currentSort == "-Rating" ? "selected" : null)">Rating (Lowest)</option>
+                            <option value="@($"{baseUrl}?sortBy=Model")" selected="@(currentSort == "Model" ? "selected" : null)">Model (A - Z)</option>
+                            <option value="@($"{baseUrl}?sortBy=-Model")" selected="@(currentSort == "-Model" ? "selected" : null)">Model (Z - A)</option> *@
+
+                        </select>
+                    </div>
+                </div>
+                <div class="limit-cat">
+                    <div class="text-category-limit">
+                        <label class="input-group-addon" for="input-limit">Show:</label>
+                    </div>
+                    <div class="select-cat-limit">
+                        <select id="input-limit" class="form-control" onchange="location = this.value;">
+                            <option value="@($"{baseUrl}?PageSize=9")" selected="@(currentPageSize == "9" ? "selected" : null)">9</option>
+                            <option value="@($"{baseUrl}?PageSize=25")" selected="@(currentPageSize == "25" ? "selected" : null)">25</option>
+                            <option value="@($"{baseUrl}?PageSize=50")" selected="@(currentPageSize == "50" ? "selected" : null)">50</option>
+                            <option value="@($"{baseUrl}?PageSize=75")" selected="@(currentPageSize == "75" ? "selected" : null)">75</option>
+                            <option value="@($"{baseUrl}?PageSize=100")" selected="@(currentPageSize == "100" ? "selected" : null)">100</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Поиск -->
-    <div class="row category-info">
+    <div class="row category-info mb-3">
         <div class="input-group themability-search">
             @{
-                ViewBag.searches = new string[] { "Name", "Weight", "Price", "Brand" };
+                <!-- Пока поиск только по строке тк в PagedList метод Search такои?. Потому Прайс и Вес пока уберем. -->
+                // ViewBag.searches = new string[] { "Name", "Weight", "Price", "Brand" };
+                ViewBag.searches = new string[] { "Name", "Brand" };
             }
             @await Html.PartialAsync("_SearchOptions", Model)
         </div>
@@ -30,13 +113,15 @@
                     <img src="@product.Image" class="card-img-top" alt="@product.Name" style="object-fit: contain; width: 100%; height: 200px;">
                     <div class="card-body d-flex flex-column">
                         <div class="d-flex justify-content-between align-items-start">
-                            <!-- прод. нейм и вес -->
+
+                            <!-- продукт нейм и вес -->
                             <div>
                                 <h4 class="card-title">@product.Name</h4>
-                                <h6 class="card-text">
+                                <h6 class="card-text mb-1">
                                     ₴@product.Price (@product.Weight.ToString("0.0") грамм)
                                 </h6>
                             </div>
+
                             <!-- звезды и количество голосов -->
                             <div class="d-flex flex-column align-items-end">
                                 <span class="rating" data-product-id="@product.Id" data-initial-rating="@product.AverageRating">

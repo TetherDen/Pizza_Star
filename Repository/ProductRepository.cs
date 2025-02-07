@@ -17,8 +17,24 @@ namespace Pizza_Star.Repository
         }
 
         // =============  my new methods  =============
-        public PagedList<Product> GetAllProductsWithRelations(QueryOptions options)
+        //public PagedList<Product> GetAllProductsWithRelations(QueryOptions options)
+        //{
+        //    var query = _applicationContext.Products
+        //        .Include(e => e.Category)
+        //        .Include(e => e.Ratings)
+        //        .AsQueryable();
+
+        //    return new PagedList<Product>(query, options);
+        //}
+
+        public PagedList<Product> GetAllProductsWithRelations(QueryOptions options, string? sortBy)
         {
+            if (!string.IsNullOrEmpty(sortBy))
+            {
+                options.OrderPropertyName = sortBy.TrimStart('-');
+                options.DescendingOrder = sortBy.StartsWith("-");
+            }
+
             var query = _applicationContext.Products
                 .Include(e => e.Category)
                 .Include(e => e.Ratings)

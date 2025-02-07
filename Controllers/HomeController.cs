@@ -24,15 +24,25 @@ namespace Lesson_22_Pizza_Star.Controllers
 
 
 
+        //[Route("/")]
+        //[HttpGet]
+        //public IActionResult Index(QueryOptions options, string? search)
+        //{
+        //    Console.WriteLine(options.SearchPropertyName);
+        //    Console.WriteLine(options.SearchTerm);
+        //    // Кароч тут поиск уже есть но надо убрать  прайс и вес    или хз как сделать чтоб по числам было там в пейджет лист смотри завтра...
+
+        //    var products = _products.GetAllProductsWithRelations(options);
+
+
+        //    return View(products);
+        //}
+
         [Route("/")]
         [HttpGet]
-        public IActionResult Index(QueryOptions options, string? search)
+        public IActionResult Index(QueryOptions options, string? search, string? sortBy)
         {
-            Console.WriteLine(options.SearchPropertyName);
-            Console.WriteLine(options.SearchTerm);
-            // Кароч тут поиск уже есть но надо убрать  прайс и вес    или хз как сделать чтоб по числам было там в пейджет лист смотри завтра...
-
-            var products = _products.GetAllProductsWithRelations(options);
+            var products = _products.GetAllProductsWithRelations(options, sortBy);
             return View(products);
         }
 
