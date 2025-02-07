@@ -10,6 +10,18 @@
 
 <br />
 <div class="container">
+
+    <!-- Поиск -->
+    <div class="row category-info">
+        <div class="input-group themability-search">
+            @{
+                ViewBag.searches = new string[] { "Name", "Weight", "Price", "Brand" };
+            }
+            @await Html.PartialAsync("_SearchOptions", Model)
+        </div>
+    </div>
+
+
     <div class="row">
         @foreach (var product in Model)
         {
@@ -108,7 +120,7 @@
                     })
                 });
 
-                if (!response.ok) throw new Error('Ошибка сети');
+                if (!response.ok) throw new Error('Ошибка сети'); // <<-- j,hfnf
 
                 const data = await response.json();
                 if (data.success) {

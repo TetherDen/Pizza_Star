@@ -28,12 +28,14 @@ namespace Lesson_22_Pizza_Star.Controllers
         [HttpGet]
         public IActionResult Index(QueryOptions options, string? search)
         {
-            //options.PageSize = 12;    // Не...
-            //var products = _products.GetAllProducts(options);
+            Console.WriteLine(options.SearchPropertyName);
+            Console.WriteLine(options.SearchTerm);
+            // Кароч тут поиск уже есть но надо убрать  прайс и вес    или хз как сделать чтоб по числам было там в пейджет лист смотри завтра...
 
             var products = _products.GetAllProductsWithRelations(options);
             return View(products);
         }
+
 
 
         [HttpPost]

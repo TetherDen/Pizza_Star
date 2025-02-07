@@ -1,4 +1,6 @@
-﻿<select form="pageform" name="options.searchpropertyname" class="form-control">
+﻿
+
+<select form="pageform" name="options.searchpropertyname" class="form-control">
     @foreach (string s in ViewBag.searches as string[])
     {
         <option value="@s" selected="@(Model.Options.SearchPropertyName == s)">
@@ -7,6 +9,12 @@
                 {
                     "Email" => "Емейл",
                     "PhoneNumber" => "Телефон",
+                    "Description" => "Описание",
+                    "Name" => "Название",
+                    "Weight" => "Вес",
+                    "Price" => "Цена",
+                    "Brand" => "Бренд",
+                    "Category.Name" => "Категория",
                     _ => s
                 }
                 )
