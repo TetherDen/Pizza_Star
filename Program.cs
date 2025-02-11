@@ -10,6 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
+
 // Install-Package Microsoft.AspNetCore.Identity.EntityFrameworkCore
 // Install-Package Microsoft.EntityFrameworkCore.SqlServer 
 
@@ -58,7 +61,15 @@ builder.Services.AddScoped<ICategory, CategoryRepository>();
 builder.Services.AddScoped<IProduct, ProductRepository>();
 
 
+// Сервисы Корзины
+// Подключаем сервис для работы с корзиной
+builder.Services.AddScoped(e => CartRepository.GetCart(e));
+//Подключаем сервис для работы с заказами
+builder.Services.AddTransient<IOrder, OrderRepository>();
+
 var app = builder.Build();
+
+app.UseSession();
 
 
 using (var scope = app.Services.CreateScope())
@@ -82,7 +93,7 @@ using (var scope = app.Services.CreateScope())
         //var applicationContext = services.GetRequiredService<ApplicationContext>();
         //await DbInit.InitializeContentAsync(applicationContext);
 
-        //await DbInit.CreateSeedDataAsync(applicationContext, categories: new int[] { 1, 2, 3});
+        //await DbInit.CreateSeedDataAsync(applicationContext, categories: new int[] { 1, 2, 3 });
 
         //=====================================================================
     }

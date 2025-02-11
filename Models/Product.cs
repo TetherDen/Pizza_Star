@@ -29,14 +29,14 @@ namespace Pizza_Star.Models
 
 
         // нав. свойство для оценок продукта
-        public List<Rating> Ratings { get; set; }
+        public List<Rating> Ratings { get; set; } = new List<Rating>();
         // Сумма всех оценок
         public int RatingSum => Ratings.Sum(r => r.RatingValue);
 
         // Количество оценок
         public int RatingCount => Ratings.Count;
 
-        // Средний рейтинг
+        // Средний рейтинг продукта
         public double AverageRating => Ratings.Any()
             ? Math.Round(Ratings.Average(r => r.RatingValue), 1)
             : 0;

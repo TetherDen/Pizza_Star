@@ -45,6 +45,7 @@ C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\wwwroot\lib\bootstrap\di
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\wwwroot\lib\jquery\dist\jquery.slim.min.js
+C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\wwwroot\assets\js\rating.js
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
@@ -140,6 +141,7 @@ wwwroot\assets\images\testimonial\testimonial-bg.png
 wwwroot\assets\images\testimonial\testimonial-bg1.png
 wwwroot\assets\js\bootstrap.min.js
 wwwroot\assets\js\owl.carousel.min.js
+wwwroot\assets\js\rating.js
 wwwroot\assets\js\themability_megamenu.js
 wwwroot\assets\js\theme.js
 wwwroot\assets\js\vendors\jquery-2.1.1.min.js
@@ -203,6 +205,7 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\productFiles\81a2ea4d-43f9-4414-ae3d-765ce37be8aapizza2.png
 wwwroot\productFiles\drink.png
 wwwroot\productFiles\e97d6493-e7fb-44cd-8745-18a39adf4ced9436.png
 wwwroot\productFiles\pizza.png

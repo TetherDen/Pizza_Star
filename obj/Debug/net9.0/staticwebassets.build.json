@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7QZ7mrTJf/Bh4NiVv+yZgRghmDT32XcMNPQqbSYgM0g=",
+  "Hash": "EpTFw6Lt1THyTdn+/QwIZnocNDwd9qibex/LSCH3ad0=",
   "Source": "Pizza_Star",
   "BasePath": "_content/Pizza_Star",
   "Mode": "Default",
@@ -1025,6 +1025,27 @@
       "OriginalItemSpec": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.js"
     },
     {
+      "Identity": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\p89ljlwqqt-gvnxrlbxvt.gz",
+      "SourceId": "Pizza_Star",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/Pizza_Star",
+      "RelativePath": "assets/js/rating#[.{fingerprint=gvnxrlbxvt}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\assets\\js\\rating.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "evdq76xdsh",
+      "Integrity": "RqhvyiZtUbnxJt8EjT3CnZ99gNtiQyWByH6MWtvTFOo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\assets\\js\\rating.js"
+    },
+    {
       "Identity": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\pe4n8akecl-493y06b0oq.gz",
       "SourceId": "Pizza_Star",
       "SourceType": "Discovered",
@@ -1298,12 +1319,12 @@
       "OriginalItemSpec": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\w2z23pa05w-1x8j364oca.gz",
+      "Identity": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\w2z23pa05w-z3l50687wp.gz",
       "SourceId": "Pizza_Star",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/Pizza_Star",
-      "RelativePath": "assets/css/style#[.{fingerprint=1x8j364oca}]?.css.gz",
+      "RelativePath": "assets/css/style#[.{fingerprint=z3l50687wp}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1312,8 +1333,8 @@
       "RelatedAsset": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\assets\\css\\style.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "tsjw1dkshg",
-      "Integrity": "w54XT5LVSDydWHHcEH/7586CC0GBezyAwlgc5ockS1o=",
+      "Fingerprint": "39zamccr51",
+      "Integrity": "99apEgmrIUU/bQCGjg3hP0lR33q6ZY32Ke0iMGGY7HQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\assets\\css\\style.css"
@@ -1606,8 +1627,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "1x8j364oca",
-      "Integrity": "G1HvXONZCWDcy5U+gF4e2xDYTPxhbDIkoxUVQmMap/I=",
+      "Fingerprint": "z3l50687wp",
+      "Integrity": "4e3LB8LTOamXqmkb3pL56UFmRUDcXenitCnE6AGWFVQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\css\\style.css"
@@ -3083,6 +3104,27 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\owl.carousel.min.js"
     },
     {
+      "Identity": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\assets\\js\\rating.js",
+      "SourceId": "Pizza_Star",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\",
+      "BasePath": "_content/Pizza_Star",
+      "RelativePath": "assets/js/rating#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gvnxrlbxvt",
+      "Integrity": "HFZK6QQOOnc2YoV+kss0/lBWzitrCJteENc9xWVbPoo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\rating.js"
+    },
+    {
       "Identity": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\assets\\js\\themability_megamenu.js",
       "SourceId": "Pizza_Star",
       "SourceType": "Discovered",
@@ -4406,6 +4448,27 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+      "Identity": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\productFiles\\81a2ea4d-43f9-4414-ae3d-765ce37be8aapizza2.png",
+      "SourceId": "Pizza_Star",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\",
+      "BasePath": "_content/Pizza_Star",
+      "RelativePath": "productFiles/81a2ea4d-43f9-4414-ae3d-765ce37be8aapizza2#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qyvdb6xypj",
+      "Integrity": "7smBVJ37xOGZsqhkRSNvVixB19ZqOEML1RdXcgXxgrw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\productFiles\\81a2ea4d-43f9-4414-ae3d-765ce37be8aapizza2.png"
+    },
+    {
       "Identity": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\productFiles\\drink.png",
       "SourceId": "Pizza_Star",
       "SourceType": "Discovered",
@@ -5088,13 +5151,13 @@
       ]
     },
     {
-      "Route": "assets/css/style.1x8j364oca.css",
-      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\w2z23pa05w-1x8j364oca.gz",
+      "Route": "assets/css/style.css",
+      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\w2z23pa05w-z3l50687wp.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000055663791"
+          "Quality": "0.000055343406"
         }
       ],
       "ResponseHeaders": [
@@ -5104,19 +5167,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "17964"
+          "Value": "18068"
         },
         {
           "Name": "ETag",
-          "Value": "\"w54XT5LVSDydWHHcEH/7586CC0GBezyAwlgc5ockS1o=\""
+          "Value": "\"99apEgmrIUU/bQCGjg3hP0lR33q6ZY32Ke0iMGGY7HQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 31 Jan 2025 18:20:16 GMT"
+          "Value": "Tue, 11 Feb 2025 20:37:57 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -5132,26 +5195,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"G1HvXONZCWDcy5U+gF4e2xDYTPxhbDIkoxUVQmMap/I=\""
+          "Value": "W/\"4e3LB8LTOamXqmkb3pL56UFmRUDcXenitCnE6AGWFVQ=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "1x8j364oca"
-        },
-        {
-          "Name": "label",
-          "Value": "assets/css/style.css"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-G1HvXONZCWDcy5U+gF4e2xDYTPxhbDIkoxUVQmMap/I="
+          "Value": "sha256-4e3LB8LTOamXqmkb3pL56UFmRUDcXenitCnE6AGWFVQ="
         }
       ]
     },
     {
-      "Route": "assets/css/style.1x8j364oca.css",
+      "Route": "assets/css/style.css",
       "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\assets\\css\\style.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5161,7 +5216,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "112033"
+          "Value": "112481"
         },
         {
           "Name": "Content-Type",
@@ -5169,11 +5224,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"G1HvXONZCWDcy5U+gF4e2xDYTPxhbDIkoxUVQmMap/I=\""
+          "Value": "\"4e3LB8LTOamXqmkb3pL56UFmRUDcXenitCnE6AGWFVQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 31 Jan 2025 18:20:16 GMT"
+          "Value": "Tue, 11 Feb 2025 20:37:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4e3LB8LTOamXqmkb3pL56UFmRUDcXenitCnE6AGWFVQ="
+        }
+      ]
+    },
+    {
+      "Route": "assets/css/style.css.gz",
+      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\w2z23pa05w-z3l50687wp.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18068"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"99apEgmrIUU/bQCGjg3hP0lR33q6ZY32Ke0iMGGY7HQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 20:37:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-99apEgmrIUU/bQCGjg3hP0lR33q6ZY32Ke0iMGGY7HQ="
+        }
+      ]
+    },
+    {
+      "Route": "assets/css/style.z3l50687wp.css",
+      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\w2z23pa05w-z3l50687wp.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000055343406"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18068"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"99apEgmrIUU/bQCGjg3hP0lR33q6ZY32Ke0iMGGY7HQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 20:37:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"4e3LB8LTOamXqmkb3pL56UFmRUDcXenitCnE6AGWFVQ=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "z3l50687wp"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/css/style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4e3LB8LTOamXqmkb3pL56UFmRUDcXenitCnE6AGWFVQ="
+        }
+      ]
+    },
+    {
+      "Route": "assets/css/style.z3l50687wp.css",
+      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\assets\\css\\style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "112481"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4e3LB8LTOamXqmkb3pL56UFmRUDcXenitCnE6AGWFVQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 20:37:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5183,7 +5383,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1x8j364oca"
+          "Value": "z3l50687wp"
         },
         {
           "Name": "label",
@@ -5191,13 +5391,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-G1HvXONZCWDcy5U+gF4e2xDYTPxhbDIkoxUVQmMap/I="
+          "Value": "sha256-4e3LB8LTOamXqmkb3pL56UFmRUDcXenitCnE6AGWFVQ="
         }
       ]
     },
     {
-      "Route": "assets/css/style.1x8j364oca.css.gz",
-      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\w2z23pa05w-1x8j364oca.gz",
+      "Route": "assets/css/style.z3l50687wp.css.gz",
+      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\w2z23pa05w-z3l50687wp.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5206,7 +5406,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "17964"
+          "Value": "18068"
         },
         {
           "Name": "Content-Type",
@@ -5214,11 +5414,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"w54XT5LVSDydWHHcEH/7586CC0GBezyAwlgc5ockS1o=\""
+          "Value": "\"99apEgmrIUU/bQCGjg3hP0lR33q6ZY32Ke0iMGGY7HQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 31 Jan 2025 18:20:16 GMT"
+          "Value": "Tue, 11 Feb 2025 20:37:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5236,7 +5436,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1x8j364oca"
+          "Value": "z3l50687wp"
         },
         {
           "Name": "label",
@@ -5244,144 +5444,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-w54XT5LVSDydWHHcEH/7586CC0GBezyAwlgc5ockS1o="
-        }
-      ]
-    },
-    {
-      "Route": "assets/css/style.css",
-      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\w2z23pa05w-1x8j364oca.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000055663791"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "17964"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"w54XT5LVSDydWHHcEH/7586CC0GBezyAwlgc5ockS1o=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 31 Jan 2025 18:20:16 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"G1HvXONZCWDcy5U+gF4e2xDYTPxhbDIkoxUVQmMap/I=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-G1HvXONZCWDcy5U+gF4e2xDYTPxhbDIkoxUVQmMap/I="
-        }
-      ]
-    },
-    {
-      "Route": "assets/css/style.css",
-      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\assets\\css\\style.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "112033"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"G1HvXONZCWDcy5U+gF4e2xDYTPxhbDIkoxUVQmMap/I=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 31 Jan 2025 18:20:16 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-G1HvXONZCWDcy5U+gF4e2xDYTPxhbDIkoxUVQmMap/I="
-        }
-      ]
-    },
-    {
-      "Route": "assets/css/style.css.gz",
-      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\w2z23pa05w-1x8j364oca.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "17964"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"w54XT5LVSDydWHHcEH/7586CC0GBezyAwlgc5ockS1o=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 31 Jan 2025 18:20:16 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-w54XT5LVSDydWHHcEH/7586CC0GBezyAwlgc5ockS1o="
+          "Value": "sha256-99apEgmrIUU/bQCGjg3hP0lR33q6ZY32Ke0iMGGY7HQ="
         }
       ]
     },
@@ -11986,6 +12049,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-nqOzu719LlcKx+8QkEpTtVtOJ8S7eWAflxzWSnpfz/Q="
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/rating.gvnxrlbxvt.js",
+      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\p89ljlwqqt-gvnxrlbxvt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000780640125"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1280"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RqhvyiZtUbnxJt8EjT3CnZ99gNtiQyWByH6MWtvTFOo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 20:37:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"HFZK6QQOOnc2YoV+kss0/lBWzitrCJteENc9xWVbPoo=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gvnxrlbxvt"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/js/rating.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HFZK6QQOOnc2YoV+kss0/lBWzitrCJteENc9xWVbPoo="
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/rating.gvnxrlbxvt.js",
+      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\assets\\js\\rating.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4017"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HFZK6QQOOnc2YoV+kss0/lBWzitrCJteENc9xWVbPoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 20:37:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gvnxrlbxvt"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/js/rating.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HFZK6QQOOnc2YoV+kss0/lBWzitrCJteENc9xWVbPoo="
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/rating.gvnxrlbxvt.js.gz",
+      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\p89ljlwqqt-gvnxrlbxvt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1280"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RqhvyiZtUbnxJt8EjT3CnZ99gNtiQyWByH6MWtvTFOo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 20:37:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gvnxrlbxvt"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/js/rating.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-RqhvyiZtUbnxJt8EjT3CnZ99gNtiQyWByH6MWtvTFOo="
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/rating.js",
+      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\p89ljlwqqt-gvnxrlbxvt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000780640125"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1280"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RqhvyiZtUbnxJt8EjT3CnZ99gNtiQyWByH6MWtvTFOo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 20:37:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"HFZK6QQOOnc2YoV+kss0/lBWzitrCJteENc9xWVbPoo=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HFZK6QQOOnc2YoV+kss0/lBWzitrCJteENc9xWVbPoo="
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/rating.js",
+      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\assets\\js\\rating.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4017"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HFZK6QQOOnc2YoV+kss0/lBWzitrCJteENc9xWVbPoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 20:37:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HFZK6QQOOnc2YoV+kss0/lBWzitrCJteENc9xWVbPoo="
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/rating.js.gz",
+      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\obj\\Debug\\net9.0\\compressed\\p89ljlwqqt-gvnxrlbxvt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1280"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RqhvyiZtUbnxJt8EjT3CnZ99gNtiQyWByH6MWtvTFOo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 20:37:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-RqhvyiZtUbnxJt8EjT3CnZ99gNtiQyWByH6MWtvTFOo="
         }
       ]
     },
@@ -31140,6 +31501,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Kj1CG2IM+1cfnRqRXJ90+JMJVGTKOPsf2ts3yoIqR1k="
+        }
+      ]
+    },
+    {
+      "Route": "productFiles/81a2ea4d-43f9-4414-ae3d-765ce37be8aapizza2.png",
+      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\productFiles\\81a2ea4d-43f9-4414-ae3d-765ce37be8aapizza2.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "184726"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7smBVJ37xOGZsqhkRSNvVixB19ZqOEML1RdXcgXxgrw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Feb 2025 21:38:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7smBVJ37xOGZsqhkRSNvVixB19ZqOEML1RdXcgXxgrw="
+        }
+      ]
+    },
+    {
+      "Route": "productFiles/81a2ea4d-43f9-4414-ae3d-765ce37be8aapizza2.qyvdb6xypj.png",
+      "AssetFile": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\productFiles\\81a2ea4d-43f9-4414-ae3d-765ce37be8aapizza2.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "184726"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7smBVJ37xOGZsqhkRSNvVixB19ZqOEML1RdXcgXxgrw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Feb 2025 21:38:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qyvdb6xypj"
+        },
+        {
+          "Name": "label",
+          "Value": "productFiles/81a2ea4d-43f9-4414-ae3d-765ce37be8aapizza2.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7smBVJ37xOGZsqhkRSNvVixB19ZqOEML1RdXcgXxgrw="
         }
       ]
     },

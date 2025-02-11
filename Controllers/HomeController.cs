@@ -5,9 +5,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Security;
 using Pizza_Star.Interfaces;
 using Pizza_Star.Models;
+using Pizza_Star.VIewModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Security.Claims;
 
 namespace Lesson_22_Pizza_Star.Controllers
@@ -16,36 +19,62 @@ namespace Lesson_22_Pizza_Star.Controllers
     {
         private readonly IProduct _products;
         private readonly ApplicationContext _context;
-        public HomeController(IProduct product, ApplicationContext context)
+        private readonly ICategory _categories;
+        public HomeController(IProduct product, ApplicationContext context, ICategory categories)
         {
             _products = product;
             _context = context;
+            _categories = categories;
         }
 
-
-
-        //[Route("/")]
-        //[HttpGet]
-        //public IActionResult Index(QueryOptions options, string? search)
-        //{
-        //    Console.WriteLine(options.SearchPropertyName);
-        //    Console.WriteLine(options.SearchTerm);
-        //    //  ароч тут поиск уже есть но надо убрать  прайс и вес    или хз как сделать чтоб по числам было там в пейджет лист смотри завтра...
-
-        //    var products = _products.GetAllProductsWithRelations(options);
-
-
-        //    return View(products);
-        //}
 
         [Route("/")]
         [HttpGet]
-        public IActionResult Index(QueryOptions options, string? search, string? sortBy)
+        public async Task<IActionResult> Index(QueryOptions options, int categoryId)
         {
-            var products = _products.GetAllProductsWithRelations(options, sortBy);
-            return View(products);
+            if (categoryId != 0)
+            {
+                ViewBag.CategoryId = categoryId;
+
+                var currentCategory = await _categories.GetCategoryAsync(categoryId);
+                if (currentCategory != null)
+                {
+                    ViewData["Title"] = currentCategory.Name;
+                }
+                //return View(_products.GetAllProductsByCategory(options, categoryId));
+                return View(_products.GetAllProductsByCategoryWithRatings(options, categoryId));
+
+            }
+            else
+            {
+                ViewData["Title"] = "√лавна€";
+                return View(_products.GetAllProductsWithRelations(options));
+            }
         }
 
+
+
+        [Route("/product")]
+        [HttpGet]
+        public async Task<IActionResult> GetProduct(int productId, string? returnUrl)
+        {
+            if (productId != 0)
+            {
+                //var currentProduct = await _products.GetProductWithCategoryAsync(productId);
+                var currentProduct = await _products.GetProductWithCategoryAndRatingAsync(productId);
+                if (currentProduct != null)
+                {
+                    //„то бы не была установлена активной главна€ страница
+                    ViewBag.CategoryId = double.NaN;
+                    return View(new CurrentProductViewModel
+                    {
+                        Product = currentProduct,
+                        ReturnUrl = returnUrl
+                    });
+                }
+            }
+            return NotFound();
+        }
 
 
         [HttpPost]
@@ -84,9 +113,8 @@ namespace Lesson_22_Pizza_Star.Controllers
 
             await _context.SaveChangesAsync();
 
-            // ѕересчитываем значени€ дл€ обнолвени€ отрисовки кол-ва звезд продукта.
+            // ѕересчитываем значени€ дл€ обнолвени€ кол-ва звезд продукта.
             // после новой оценки юзером продуктабез обнолвени€ страницы.
-            // “ам JS в представлении надо доделать, пока обновл€тет только при 1ом голосовании, второй голос уже не отрисовует звезды
             var newAverage = product.Ratings.Any()
                 ? Math.Round(product.Ratings.Average(r => r.RatingValue), 1)
                 : 0;
@@ -98,6 +126,11 @@ namespace Lesson_22_Pizza_Star.Controllers
                 ratingCount = product.Ratings.Count
             });
         }
+
+
+
+
+
     }
 
 

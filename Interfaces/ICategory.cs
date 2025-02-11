@@ -16,8 +16,8 @@ namespace Pizza_Star.Interfaces
         PagedList<Category> GetAllCategories(QueryOptions options);
         Task<IEnumerable<Category>> GetAllCategoriesAsync();
 
-        //Task<IEnumerable> GetAllCategories();
 
         //Task<List<Category>> GetAllCategoriesAsync();
+        Task<Category?> GetCategoryAsync(int categoryId);
     }
 }

@@ -1,0 +1,60 @@
+﻿@using Pizza_Star.Data.Helpers
+@using Pizza_Star.Models
+@model Product
+
+@Html.AntiForgeryToken()
+
+<div class="product-layout product-grid col-lg-4 col-md-6 col-sm-4 col-xs-4">
+    <div class="product-thumb">
+        <div class="image">
+            <a asp-controller="Home" asp-action="GetProduct" asp-route-productId="@Model.Id"
+               asp-route-returnUrl="@ViewContext.HttpContext.Request.PathAndQuery()" class="thumb-image">
+                <img src="@Model.Image" alt="@Model.Name" title="@Model.Name" class="img-responsive">
+            </a>
+        </div>
+        <div class="product-description">
+            <div class="caption">
+                <div class="title-rating clearfix">
+
+                    <h4 class="product-title">
+                        <a asp-controller="Home" asp-action="GetProduct" asp-route-productId="@Model.Id"
+                           asp-route-returnUrl="@ViewContext.HttpContext.Request.PathAndQuery()">
+                            @Model.Name
+                        </a>
+                    </h4>
+
+                    @*Вывод звездочек по рейтингу продукта*@
+                    <div class="rating" data-product-id="@Model.Id" data-rating="@Model.AverageRating">
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            <span class="fa-stack star" data-value="@i">
+                                <i class="fa fa-star @(i <= Model.AverageRating ? "fa-solid" : "fa-regular") fa-star"></i>
+                            </span>
+                        }
+                        <span class="rating-count">(@Model.RatingCount)</span>
+                    </div>
+
+                </div>
+
+                <div class="price-cartbtn clearfix">
+                    <p class="price">₴@Model.Price</p>
+                    <p class="price">
+                        (@Model.Weight.ToString("0.0")
+                        @(Model.Type == ProductType.Drink ? "миллилитров" : "грамм"))
+                    </p>
+                    <p class="description">@Model.Description</p>
+                    <form method="post" asp-controller="ShopCart" asp-action="AddToCart"
+                          data-ajax-mode="replace" data-ajax-update="#updateDiv" data-ajax="true">
+                        <input type="hidden" name="productId" value="@Model.Id" />
+                        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                        <button type="submit" class="addcart">
+                            <span>Добавить в Корзину</span>
+                            <i class="icon-shopping-bag hidden"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

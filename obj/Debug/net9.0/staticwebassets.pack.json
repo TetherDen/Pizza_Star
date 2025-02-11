@@ -297,6 +297,10 @@
       "PackagePath": "staticwebassets\\assets\\js\\owl.carousel.min.js"
     },
     {
+      "Id": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\assets\\js\\rating.js",
+      "PackagePath": "staticwebassets\\assets\\js\\rating.js"
+    },
+    {
       "Id": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\assets\\js\\themability_megamenu.js",
       "PackagePath": "staticwebassets\\assets\\js\\themability_megamenu.js"
     },
@@ -547,6 +551,10 @@
     {
       "Id": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\productFiles\\81a2ea4d-43f9-4414-ae3d-765ce37be8aapizza2.png",
+      "PackagePath": "staticwebassets\\productFiles\\81a2ea4d-43f9-4414-ae3d-765ce37be8aapizza2.png"
     },
     {
       "Id": "C:\\Users\\admin\\source\\repos\\ASP.NET_Core_Dev\\Pizza_Star\\wwwroot\\productFiles\\drink.png",

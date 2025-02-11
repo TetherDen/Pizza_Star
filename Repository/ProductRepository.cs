@@ -17,24 +17,8 @@ namespace Pizza_Star.Repository
         }
 
         // =============  my new methods  =============
-        //public PagedList<Product> GetAllProductsWithRelations(QueryOptions options)
-        //{
-        //    var query = _applicationContext.Products
-        //        .Include(e => e.Category)
-        //        .Include(e => e.Ratings)
-        //        .AsQueryable();
-
-        //    return new PagedList<Product>(query, options);
-        //}
-
-        public PagedList<Product> GetAllProductsWithRelations(QueryOptions options, string? sortBy)
+        public PagedList<Product> GetAllProductsWithRelations(QueryOptions options)
         {
-            if (!string.IsNullOrEmpty(sortBy))
-            {
-                options.OrderPropertyName = sortBy.TrimStart('-');
-                options.DescendingOrder = sortBy.StartsWith("-");
-            }
-
             var query = _applicationContext.Products
                 .Include(e => e.Category)
                 .Include(e => e.Ratings)
@@ -43,12 +27,43 @@ namespace Pizza_Star.Repository
             return new PagedList<Product>(query, options);
         }
 
+        //public PagedList<Product> GetAllProductsWithRelations(QueryOptions options, string? sortBy)
+        //{
+        //    if (!string.IsNullOrEmpty(sortBy))
+        //    {
+        //        options.OrderPropertyName = sortBy.TrimStart('-');
+        //        options.DescendingOrder = sortBy.StartsWith("-");
+        //    }
 
+        //    var query = _applicationContext.Products
+        //        .Include(e => e.Category)
+        //        .Include(e => e.Ratings)
+        //        .AsQueryable();
+
+        //    return new PagedList<Product>(query, options);
+        //}
+
+        //===========
+        // l3+
+        public async Task<IEnumerable<Product>> GetEightRandomProductsAsync(int productId)
+        {
+            return await _applicationContext.Products.Where(e => e.Id != productId).OrderBy(e => Guid.NewGuid()).Take(8).ToListAsync();
+        }
+
+        public PagedList<Product> GetAllProductsByCategoryWithRatings(QueryOptions options, int categoryId)
+        {
+            return new PagedList<Product>(_applicationContext.Products.Include(e => e.Category).Include(e => e.Ratings).Where(e => e.CategoryId == categoryId), options);
+        }
         //===============================================
 
         public PagedList<Product> GetAllProducts(QueryOptions options)
         {
             return new PagedList<Product>(_applicationContext.Products.Include(e => e.Category), options);
+        }
+
+        public PagedList<Product> GetAllProductsByCategory(QueryOptions options, int categoryId)
+        {
+            return new PagedList<Product>(_applicationContext.Products.Include(e => e.Category).Where(e => e.CategoryId == categoryId), options);
         }
 
 
@@ -82,6 +97,16 @@ namespace Pizza_Star.Repository
         {
             return await _applicationContext.Products.Include(e => e.Category).AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
         }
+
+        public async Task<Product> GetProductWithCategoryAndRatingAsync(int id)
+        {
+            return await _applicationContext.Products.Include(e => e.Category).Include(e => e.Ratings).AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
+        }
+
+
+
+
+
     }
 
 

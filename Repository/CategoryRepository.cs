@@ -20,10 +20,6 @@ namespace Pizza_Star.Repository
         }
 
 
-
-
-
-
         public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
         {
             return await _context.Categories.AsNoTracking().ToListAsync();
@@ -33,18 +29,6 @@ namespace Pizza_Star.Repository
         {
             return new PagedList<Category>(_context.Categories, options);
         }
-
-        //public async Task<List<Category>> GetAllCategoriesAsync()
-        //{
-        //    return await _context.Categories.ToListAsync();
-        //}
-
-
-
-
-
-
-
 
         public async Task<Category?> GetByIdAsync(int id)
         {
@@ -81,7 +65,12 @@ namespace Pizza_Star.Repository
         }
 
 
-
+        public async Task<Category?> GetCategoryAsync(int categoryId)
+        {
+            return await _context.Categories
+                                 .AsNoTracking()
+                                 .FirstOrDefaultAsync(c => c.Id == categoryId);
+        }
 
     }
 }

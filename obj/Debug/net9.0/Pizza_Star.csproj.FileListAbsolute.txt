@@ -78,7 +78,6 @@ C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\scopedc
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\scopedcss\projectbundle\Pizza_Star.bundle.scp.css
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\compressed\479xmb53tv-vl8oqxvn1z.gz
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\compressed\wunosum55b-ajdf5mry6v.gz
-C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\compressed\w2z23pa05w-1x8j364oca.gz
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\compressed\zvy8qmiq1x-df4e19ekto.gz
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\compressed\wpeehzpd8f-v2vsdql4gi.gz
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\compressed\66voen5jyy-63carbrpws.gz
@@ -164,3 +163,5 @@ C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\Pizza_S
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\Pizza_Star.genruntimeconfig.cache
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\ref\Pizza_Star.dll
 C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\Pizza_Star.sourcelink.json
+C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\compressed\w2z23pa05w-z3l50687wp.gz
+C:\Users\admin\source\repos\ASP.NET_Core_Dev\Pizza_Star\obj\Debug\net9.0\compressed\p89ljlwqqt-gvnxrlbxvt.gz
