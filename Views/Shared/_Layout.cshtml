@@ -1,9 +1,13 @@
 ﻿@using Pizza_Star.Interfaces
 @using Pizza_Star.Models
+@using Pizza_Star.Repository
 
 @inject ICategory _categories;
+@inject CartRepository _cart;
+
 @{
     var allCategories = await _categories.GetAllCategoriesAsync();
+    var cartProductCount = await _cart.GetShopCartItemsCountAsync();
 }
 
 
@@ -149,9 +153,11 @@
                 </div>
                 <div class="header-right">
                     <div class="search-content">
+
                         <div class="search-btn-outer hidden-lg hidden-md">
                             <i class="fa fa-search"></i>
                         </div>
+
                         <div class="header-search">
                             <div id="themabilitySearch" class="input-group themability-search">
                                 <input type="text" name="search" value="" placeholder="Поиск..." class="form-control input-lg ui-autocomplete-input" />
@@ -161,15 +167,20 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="cart-content">
-                        <div id="cart" class="btn-group btn-block">
-                            <button type="button" data-toggle="dropdown" data-loading-text="<i class='fa fa-spinner fa-spin' aria-hidden='true'></i>"
-                                    class="btn btn-inverse btn-block btn-lg dropdown-toggle">
-                                <i class="fa fa-shopping-cart"></i> <span id="cart-total">2</span>
-                            </button>
 
-
+                        <div class="cart-btn-container">
+                            <a asp-controller="ShopCart" asp-action="Index" class="btn btn-cart btn-block btn-lg">
+                                <i class="fa fa-shopping-cart"></i> 
+                                <span id="cartProductNumber">
+                                    @(cartProductCount <= 0 ? 0 : cartProductCount)
+                                </span>
+                            </a>
                         </div>
+
+
+
                     </div>
 
 
@@ -214,9 +225,8 @@
                             </ul>
                         }
 
-
-@* 
-                        <ul class="dropdown-menu dropdown-menu-right account-link-toggle">
+ 
+                        @* <ul class="dropdown-menu dropdown-menu-right account-link-toggle">
                             <li>
                                 <a href="#">Регистрация</a>
                             </li>

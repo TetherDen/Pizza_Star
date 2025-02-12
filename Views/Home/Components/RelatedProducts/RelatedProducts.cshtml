@@ -35,7 +35,7 @@
                                         <div class="price-cartbtn clearfix">
                                             <p class="price">₴@product.Price</p>
                                             <p class="price">
-                                                (@product.Weight
+												(@product.Weight.ToString("0")
                                                 @(product.Type == ProductType.Drink ? "миллилитров" : "грамм"))
                                             </p>
                                             <p class="description">@product.Description</p>

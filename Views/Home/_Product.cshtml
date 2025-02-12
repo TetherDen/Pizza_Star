@@ -39,19 +39,24 @@
                 <div class="price-cartbtn clearfix">
                     <p class="price">₴@Model.Price</p>
                     <p class="price">
-                        (@Model.Weight.ToString("0.0")
+                        (@Model.Weight.ToString("0")
                         @(Model.Type == ProductType.Drink ? "миллилитров" : "грамм"))
                     </p>
+
                     <p class="description">@Model.Description</p>
+
+
                     <form method="post" asp-controller="ShopCart" asp-action="AddToCart"
                           data-ajax-mode="replace" data-ajax-update="#updateDiv" data-ajax="true">
                         <input type="hidden" name="productId" value="@Model.Id" />
                         <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
                         <button type="submit" class="addcart">
                             <span>Добавить в Корзину</span>
                             <i class="icon-shopping-bag hidden"></i>
                         </button>
                     </form>
+
                 </div>
 
             </div>

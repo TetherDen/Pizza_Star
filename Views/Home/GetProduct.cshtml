@@ -76,11 +76,11 @@
                                 <li><span class="disc">Бренд:</span> @Model.Product.Brand </li>
                                 <li>
                                     <span class="disc">Вес:</span> <span class="disc1">
-                                        @Model.Product.Weight
+										@Model.Product.Weight.ToString("0")
                                         @(Model.Product.Type == ProductType.Drink ? "миллилитров" : "грамм")
                                     </span>
                                 </li>
-                                <li><span class="disc">Калорийность:</span> <span class="disc1">@Model.Product.Calories</span></li>
+                                <li><span class="disc">Калорийность:</span> <span class="disc1">@Model.Product.Calories.ToString("0")</span></li>
 
                             </ul>
 
@@ -150,6 +150,7 @@
                     </div>
                 </div>
 
+				@* Выводит рекомендацию 8 рандомных продуктов в карусели снизу, через компонент RelatedProducts *@
                 @await Component.InvokeAsync("RelatedProducts", new { productId = Model.Product.Id })
 
             </div>

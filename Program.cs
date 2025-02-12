@@ -54,18 +54,17 @@ builder.Services.AddScoped<ICategory, CategoryRepository>();
 //Время существования токена, для восстановления пароля - 1 час.
 builder.Services.Configure<DataProtectionTokenProviderOptions>(opts => opts.TokenLifespan = TimeSpan.FromHours(1));
 
-
-//===========================
-
-builder.Services.AddScoped<ICategory, CategoryRepository>();
+// Подключаем сервис для работы с блюдами
 builder.Services.AddScoped<IProduct, ProductRepository>();
 
 
-// Сервисы Корзины
+// Сервисы Корзины и заказа:
 // Подключаем сервис для работы с корзиной
 builder.Services.AddScoped(e => CartRepository.GetCart(e));
 //Подключаем сервис для работы с заказами
 builder.Services.AddTransient<IOrder, OrderRepository>();
+
+//===========================
 
 var app = builder.Build();
 

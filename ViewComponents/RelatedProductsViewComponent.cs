@@ -3,6 +3,7 @@ using Pizza_Star.Interfaces;
 
 namespace Pizza_Star.ViewComponents
 {
+    // компонент представления для отображения 8 случайных продуктов в представлении...
     public class RelatedProductsViewComponent : ViewComponent   
     {
         private readonly IProduct _products;
