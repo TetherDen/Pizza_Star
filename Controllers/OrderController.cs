@@ -1,68 +1,75 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Lesson_22_Pizza_Star.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Pizza_Star.Interfaces;
 using Pizza_Star.Models.Checkout;
+using Pizza_Star.Repository;
+using Pizza_Star.VIewModel;
 using System.Security.Claims;
 
 namespace Pizza_Star.Controllers
 {
     public class OrderController : Controller
     {
-        private readonly ICart _cart;
+        private readonly CartRepository _cart;
         private readonly IOrder _order;
+        private readonly UserManager<User> _userManager;
 
-        public OrderController(ICart carts, IOrder orders)
+        public OrderController(CartRepository carts, IOrder orders, UserManager<User> userManager)
         {
             _cart = carts;
             _order = orders;
+            _userManager = userManager;
         }
-
 
         [HttpGet]
         public async Task<IActionResult> Index()
         {
             var cartItems = await _cart.GetShopCartItemsAsync();
-            if (!cartItems.Any())
+
+            if(cartItems.Count() > 0)
             {
-                return RedirectToAction("Index", "ShopCart");
+                var orderViewModel = new CreateOrderViewModel
+                {
+
+                };
+                return View(orderViewModel);
             }
-
-            var order = new Order
-            {
-                CreatedAt = DateTime.Now
-            };
-
-            if (User.Identity.IsAuthenticated)
-            {
-                order.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            }
-
-            return View(order);
+            return RedirectToAction("Index", "ShopCart");
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateOrder(Order order)
+        [Authorize]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> CreateOrder(CreateOrderViewModel model)
         {
-            if (!ModelState.IsValid)
+            if(ModelState.IsValid)
             {
-                return View("Index", order);
-            }
+                var cartItems = await _cart.GetShopCartItemsAsync();
+                if (cartItems.Count() > 0)
+                {
+                    var user = await _userManager.GetUserAsync(User);
+                    var order = new Order
+                    {
+                        Phone = user.PhoneNumber,
+                        Email = user.Email,
+                        UserId = user.Id,
 
-            var cartItems = await _cart.GetShopCartItemsAsync();
-            if (!cartItems.Any())
-            {
+                        Fio = model.Fio,
+                        City = model.City,
+                        Address = model.Address,
+                        CreatedAt = DateTime.Now
+                    };
+
+                    await _order.AddOrderAsync(order);
+                    await _cart.ClearCartAsync();
+
+                    return RedirectToAction("Success");
+                }
                 return RedirectToAction("Index", "ShopCart");
             }
-
-            order.CreatedAt = DateTime.Now;
-            if (User.Identity.IsAuthenticated)
-            {
-                order.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            }
-
-            await _order.AddOrderAsync(order);
-            await _cart.ClearCartAsync();
-
-            return RedirectToAction("Success");
+            return View("Index", model);
         }
 
         [HttpGet]
@@ -70,5 +77,8 @@ namespace Pizza_Star.Controllers
         {
             return View();
         }
+
+
+
     }
 }

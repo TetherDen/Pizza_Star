@@ -1,0 +1,96 @@
+﻿@{
+    ViewData["Title"] = "Заказ подтвержден";
+}
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+            <div class="success-container">
+
+                <div class="icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+
+                <h2>Заказ успешно оформлен!</h2>
+                <p>Благодарим вас за заказ! В ближайшее время мы свяжемся с вами для уточнения деталей.</p>
+
+                <div>
+                    <a href="@Url.Action("Index", "Home")" class="btn-custom">
+                        Вернуться на главную
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--background-color);
+    }
+
+    .success-container {
+        background-color: var(--primary-hover-color);
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
+        text-align: center;
+        margin-top: 50px;
+        border: 1px solid var(--border-color);
+    }
+
+        .success-container h2 {
+            font-size: 36px;
+            color: var(--secondary-hover-color);
+            font-weight: 500;
+        }
+
+        .success-container p {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+    .btn-custom {
+        background-color: var(--secondary-color);
+        color: var(--primary-hover-color);
+        padding: 12px 25px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.7s ease;
+        display: inline-block;
+        text-decoration: none;
+    }
+
+        .btn-custom:hover {
+            background-color: var(--secondary-hover-color);
+            color: var(--primary-hover-color);
+        }
+
+    .icon {
+        font-size: 60px;
+        color: var(--secondary-hover-color);
+        margin-bottom: 20px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+</style>
+
+
+@* icons FontAwesome для значков *@
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
