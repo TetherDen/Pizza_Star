@@ -12,18 +12,17 @@ namespace Pizza_Star.Interfaces
         Task DeleteProductAsync(Product product);
         Task EditProductAsync(Product product);
 
-        // ============= new methods  =============
+
+
 
         PagedList<Product> GetAllProductsWithRelations(QueryOptions options);
         Task<Product> GetProductWithCategoryAndRatingAsync(int id);
         PagedList<Product> GetAllProductsByCategoryWithRatings(QueryOptions options, int categoryId);
 
-
-        // Les 3 add
         PagedList<Product> GetAllProductsByCategory(QueryOptions options, int categoryId);
         Task<IEnumerable<Product>> GetEightRandomProductsAsync(int productId);
 
-        //===================================================
+
 
     }
 }

@@ -74,7 +74,7 @@ namespace Pizza_Star.Controllers
 
 
         [Authorize(Roles = "Admin, Editor")]
-        //[ValidateAntiForgeryToken]    // <<-- TODO надо фикс в представлении где JS в модальном окне? или где не помню уже....
+        //[ValidateAntiForgeryToken]    // <<-- TODO в JS скрипте добавить токен
         [HttpDelete]
         public async Task<IActionResult> DeleteCategory(int id)
         {

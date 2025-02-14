@@ -38,28 +38,6 @@ namespace Lesson_22_Pizza_Star.Controllers
 
         //   *** Users - CRUD   ***
 
-        //[Authorize(Roles = "Admin")]
-        //[Route("/panel/users")]
-        //[HttpGet]
-        //public IActionResult Users(QueryOptions options, string? search, string? searchBy)
-        //{
-        //    IQueryable<User> users = _userManager.Users;
-
-        //    if (!string.IsNullOrWhiteSpace(search) && !string.IsNullOrWhiteSpace(searchBy))
-        //    {
-        //        search = search.ToLower();
-        //        users = searchBy switch
-        //        {
-        //            "name" => users.Where(u => u.UserName.ToLower().Contains(search)),
-        //            "email" => users.Where(u => u.Email.ToLower().Contains(search)),
-        //            "phone" => users.Where(u => u.PhoneNumber != null && u.PhoneNumber.Contains(search)),
-        //            _ => users
-        //        };
-        //    }
-
-        //    var pagedList = new PagedList<User>(users, options);
-        //    return View(pagedList);
-
         [Authorize(Roles = "Admin")]
         [Route("/panel/users")]
         [HttpGet]

@@ -41,7 +41,7 @@ namespace Lesson_22_Pizza_Star.Controllers
                 {
                     ViewData["Title"] = currentCategory.Name;
                 }
-                //return View(_products.GetAllProductsByCategory(options, categoryId));
+
                 return View(_products.GetAllProductsByCategoryWithRatings(options, categoryId));
 
             }
@@ -60,7 +60,6 @@ namespace Lesson_22_Pizza_Star.Controllers
         {
             if (productId != 0)
             {
-                //var currentProduct = await _products.GetProductWithCategoryAsync(productId);
                 var currentProduct = await _products.GetProductWithCategoryAndRatingAsync(productId);
                 if (currentProduct != null)
                 {
