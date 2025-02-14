@@ -1,4 +1,4 @@
-﻿using Lesson_22_Pizza_Star.Models.Pages;
+﻿using Pizza_Star.Models.Pages;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +8,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.Identity.Client;
 using Pizza_Star.Interfaces;
 using Pizza_Star.Models;
-using Pizza_Star.VIewModel;
+using Pizza_Star.ViewModel;
 
 namespace Pizza_Star.Controllers
 {
@@ -65,8 +65,6 @@ namespace Pizza_Star.Controllers
         public async Task<IActionResult> CreateProduct()
         {
             var categories = await _categories.GetAllCategoriesAsync();
-            //var categories = await _categories.GetAll().ToListAsync();
-            //var categories = await _categories.GetAllCategoriesAsync();
 
             return View(new ProductViewModel
             {
@@ -130,8 +128,6 @@ namespace Pizza_Star.Controllers
             if (currentProduct != null)
             {
                 var categories = await _categories.GetAllCategoriesAsync();
-                //var categories = await _categories.GetAll().ToListAsync();
-                //var categories = await _categories.GetAllCategoriesAsync();
 
 
                 ProductViewModel productViewModel = new ProductViewModel

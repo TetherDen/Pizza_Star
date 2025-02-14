@@ -1,9 +1,9 @@
-﻿using Lesson_22_Pizza_Star.Models.Pages;
+﻿using Pizza_Star.Models.Pages;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Pizza_Star.Interfaces;
 using Pizza_Star.Models;
-using Pizza_Star.VIewModel;
+using Pizza_Star.ViewModel;
 
 namespace Pizza_Star.Controllers
 {
@@ -112,7 +112,7 @@ namespace Pizza_Star.Controllers
                 return NotFound();
             }
 
-            var viewModel = new CategoryViewModel
+            var ViewModel = new CategoryViewModel
             {
                 Id = category.Id ?? 0, // тк Id Category может быть null ?
                 Name = category.Name,
@@ -120,7 +120,7 @@ namespace Pizza_Star.Controllers
                 ExistingImage = string.IsNullOrEmpty(category.Image) ? null : $"/{category.Image}"
             };
 
-            return View(viewModel);
+            return View(ViewModel);
         }
 
         [Authorize(Roles = "Admin, Editor")]

@@ -1,0 +1,151 @@
+﻿@{
+    Layout = "../Panel/_PanelLayout.cshtml";
+    ViewData["Title"] = "Заказы";
+}
+@using Pizza_Star.Models.Pages
+@using Pizza_Star.Models.Checkout
+@model PagedList<Order>
+
+
+<div class="breadcrumb-main">
+    <div class="breadcrumb-container clearfix">
+        <h1 class="page-title">Панель управления</h1>
+        <ul class="breadcrumb">
+            <li><a asp-action="Index" asp-controller="Panel">Главная</a></li>
+            <li><a asp-action="ShowOrders" asp-controller="Order">Заказы</a></li>
+        </ul>
+    </div>
+</div>
+
+<div>
+
+    <!-- Отдельный фильтр по статусу -->
+    @await Html.PartialAsync("_StatusFilter", Model)
+
+    <!-- Обычный поиск по остальным полям если не выбран статус -->
+    @if (Model.Options.SearchPropertyName != "Status")
+    {
+        <div class="input-group themability-search">
+            @{
+                ViewBag.searches = new string[] { "Email", "Phone", "City" };
+            }
+            @await Html.PartialAsync("_SearchOptions", Model)
+        </div>
+    }
+
+    <div class="p-3 mb-4 bg-light rounded-3 ovx table-responsive">
+        <table class="table">
+            <tr>
+                <th>Дата создания</th>
+                <th>Статус</th>
+                <th>Телефон</th>
+                <th>Email</th>
+                <th>Город</th>
+                <th>Адрес</th>
+                <th>Действия</th>
+            </tr>
+            @foreach (var order in Model)
+            {
+                <tr data-rowid="@order.Id">
+                    <td>@order.CreatedAt.ToString("dd.MM.yy HH:mm")</td>
+                    <td>@order.Status</td>
+                    <td>@order.Phone</td>
+                    <td>@order.Email</td>
+                    <td>@order.City</td>
+                    <td>@order.Address</td>
+                    <td>
+
+                        <div class="d-flex  gap-1">
+                            <a class="btn btn-sm btn-primary p-1" asp-action="ViewOrder" asp-controller="Order" asp-route-id="@order.Id">Просмотр</a>
+                            <a class="btn btn-sm btn-warning p-1" asp-action="ViewOrder" asp-controller="Order" asp-route-id="@order.Id" asp-route-edit="true">Изменить</a>
+                            <button onclick="deleteOrder('@order.Id')" class="btn btn-sm btn-danger p-1">Удалить</button>
+                        </div>
+
+                    </td>
+                </tr>
+            }
+        </table>
+
+        <div class="text-center">
+            @await Html.PartialAsync("_Pages", Model)
+        </div>
+
+        @await Html.PartialAsync("_Modal", "Удалить выбранный заказ?")
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        async function deleteOrder(orderId) {
+            const btnYes = document.getElementById('btn-Yes');
+            const btnNo = document.getElementById('btn-No');
+            const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+            $('#confirmModal').modal('show');
+
+            btnYes.onclick = async () => {
+                const deleteItem = await fetch(`/order/DeleteOrder?id=${orderId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'RequestVerificationToken': token
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    document.querySelector("tr[data-rowid='" + orderId + "']").remove();
+                    $('#confirmModal').modal('hide');
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+            }
+
+            btnNo.onclick = () => {
+                $('#confirmModal').modal('hide');
+            }
+        }
+    </script>
+
+    <script>
+        // PS
+        // используем существующий механизм фильтрации через options.searchpropertyname и options.searchterm PagedList
+        // Когда пользователь выбирает статус и нажимает кнопку "Применить":
+
+        // JS получает выбранное значение
+        // Очищает старые параметры поиска из URL
+        // Устанавливает новые параметры поиска (options.searchpropertyname="Status" и options.searchterm={выбранный_статус})
+        // Перенаправляет на ту же страницу с новыми параметрами
+
+        // В представлении мы скрываем обычную форму поиска, если уже выбран статус, чтобы избежать конфликтов.
+        // TODO: В будущем надо сделать поиск при фильтрации по статусу...
+
+        // Добавляем код обработчика фильтра статуса
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('applyStatusFilter').addEventListener('click', function() {
+                const status = document.getElementById('statusFilter').value;
+
+                // Сохраняем текущие параметры URL
+                const urlParams = new URLSearchParams(window.location.search);
+
+                // Очищаем старые параметры поиска
+                urlParams.delete('options.searchpropertyname');
+                urlParams.delete('options.searchterm');
+
+                // Если выбран статус, добавляем его как параметр поиска
+                if (status) {
+                    urlParams.set('options.searchpropertyname', 'Status');
+                    urlParams.set('options.searchterm', status);
+                }
+
+                // Перенаправляем на текущую страницу с новыми параметрами
+                window.location.href = window.location.pathname + '?' + urlParams.toString();
+            });
+        });
+    </script>
+
+}

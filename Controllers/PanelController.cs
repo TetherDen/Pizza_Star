@@ -1,5 +1,5 @@
-﻿using Lesson_22_Pizza_Star.Models;
-using Lesson_22_Pizza_Star.Models.Pages;
+﻿using Pizza_Star.Models;
+using Pizza_Star.Models.Pages;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Pizza_Star.Interfaces;
 using Pizza_Star.Models;
 using Pizza_Star.Repository;
-using Pizza_Star.VIewModel;
+using Pizza_Star.ViewModel;
 
 namespace Lesson_22_Pizza_Star.Controllers
 {
@@ -38,26 +38,34 @@ namespace Lesson_22_Pizza_Star.Controllers
 
         //   *** Users - CRUD   ***
 
+        //[Authorize(Roles = "Admin")]
+        //[Route("/panel/users")]
+        //[HttpGet]
+        //public IActionResult Users(QueryOptions options, string? search, string? searchBy)
+        //{
+        //    IQueryable<User> users = _userManager.Users;
+
+        //    if (!string.IsNullOrWhiteSpace(search) && !string.IsNullOrWhiteSpace(searchBy))
+        //    {
+        //        search = search.ToLower();
+        //        users = searchBy switch
+        //        {
+        //            "name" => users.Where(u => u.UserName.ToLower().Contains(search)),
+        //            "email" => users.Where(u => u.Email.ToLower().Contains(search)),
+        //            "phone" => users.Where(u => u.PhoneNumber != null && u.PhoneNumber.Contains(search)),
+        //            _ => users
+        //        };
+        //    }
+
+        //    var pagedList = new PagedList<User>(users, options);
+        //    return View(pagedList);
+
         [Authorize(Roles = "Admin")]
         [Route("/panel/users")]
         [HttpGet]
-        public IActionResult Users(QueryOptions options, string? search, string? searchBy)
+        public IActionResult Users(QueryOptions options)
         {
-            IQueryable<User> users = _userManager.Users;
-
-            if (!string.IsNullOrWhiteSpace(search) && !string.IsNullOrWhiteSpace(searchBy))
-            {
-                search = search.ToLower();
-                users = searchBy switch
-                {
-                    "name" => users.Where(u => u.UserName.ToLower().Contains(search)),
-                    "email" => users.Where(u => u.Email.ToLower().Contains(search)),
-                    "phone" => users.Where(u => u.PhoneNumber != null && u.PhoneNumber.Contains(search)),
-                    _ => users
-                };
-            }
-
-            var pagedList = new PagedList<User>(users, options);
+            var pagedList = new PagedList<User>(_userManager.Users, options);
             return View(pagedList);
         }
 

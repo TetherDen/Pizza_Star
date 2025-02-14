@@ -1,9 +1,10 @@
-﻿using Lesson_22_Pizza_Star.Models;
+﻿using Pizza_Star.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Pizza_Star.Models;
+using Pizza_Star.Data;
 
-namespace Lesson_22_Pizza_Star.Data
+namespace Pizza_Star.Data
 {
     public class DbInit
     {

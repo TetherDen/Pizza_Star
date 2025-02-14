@@ -1,4 +1,4 @@
-﻿namespace Pizza_Star.VIewModel
+﻿namespace Pizza_Star.ViewModel
 {
     public class EditRoleViewModel
     {

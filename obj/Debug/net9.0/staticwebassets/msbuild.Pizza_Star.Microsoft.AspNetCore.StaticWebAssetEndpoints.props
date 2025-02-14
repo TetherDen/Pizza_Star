@@ -1644,17 +1644,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1117"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=\u0022"},{"Name":"Last-Modified","Value":"Fri, 31 Jan 2025 16:26:09 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Pizza_Star/Pizza_Star.3h36924tr8.bundle.scp.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pizza_Star.3h36924tr8.bundle.scp.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"3h36924tr8"},{"Name":"integrity","Value":"sha256-6Tf7Uxpx9xCiti2AMx1hOYNSBTuGNd5Uu\u002Bi4UmtT5BE="},{"Name":"label","Value":"_content/Pizza_Star/Pizza_Star.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1128"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00226Tf7Uxpx9xCiti2AMx1hOYNSBTuGNd5Uu\u002Bi4UmtT5BE=\u0022"},{"Name":"Last-Modified","Value":"Tue, 04 Feb 2025 20:26:21 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Pizza_Star/Pizza_Star.bundle.scp.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pizza_Star.3h36924tr8.bundle.scp.css'))</AssetFile>
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pizza_Star.q8rgty6snv.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-6Tf7Uxpx9xCiti2AMx1hOYNSBTuGNd5Uu\u002Bi4UmtT5BE="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1128"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00226Tf7Uxpx9xCiti2AMx1hOYNSBTuGNd5Uu\u002Bi4UmtT5BE=\u0022"},{"Name":"Last-Modified","Value":"Tue, 04 Feb 2025 20:26:21 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Fq1Wm1X6c5rSL97BdJ\u002BCjkIP5e8M38yO3Q11xoQtZD0="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1128"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Fq1Wm1X6c5rSL97BdJ\u002BCjkIP5e8M38yO3Q11xoQtZD0=\u0022"},{"Name":"Last-Modified","Value":"Fri, 14 Feb 2025 13:57:00 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Pizza_Star/Pizza_Star.q8rgty6snv.bundle.scp.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pizza_Star.q8rgty6snv.bundle.scp.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"q8rgty6snv"},{"Name":"integrity","Value":"sha256-Fq1Wm1X6c5rSL97BdJ\u002BCjkIP5e8M38yO3Q11xoQtZD0="},{"Name":"label","Value":"_content/Pizza_Star/Pizza_Star.bundle.scp.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1128"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Fq1Wm1X6c5rSL97BdJ\u002BCjkIP5e8M38yO3Q11xoQtZD0=\u0022"},{"Name":"Last-Modified","Value":"Fri, 14 Feb 2025 13:57:00 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Pizza_Star/productFiles/81a2ea4d-43f9-4414-ae3d-765ce37be8aapizza2.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\productFiles\81a2ea4d-43f9-4414-ae3d-765ce37be8aapizza2.png'))</AssetFile>

@@ -2466,23 +2466,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\jquery\LICENSE.txt'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pizza_Star.3h36924tr8.bundle.scp.css'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pizza_Star.q8rgty6snv.bundle.scp.css'))">
       <SourceType>Package</SourceType>
       <SourceId>Pizza_Star</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Pizza_Star</BasePath>
-      <RelativePath>Pizza_Star.3h36924tr8.bundle.scp.css</RelativePath>
+      <RelativePath>Pizza_Star.q8rgty6snv.bundle.scp.css</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>Reference</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ProjectBundle</AssetTraitValue>
-      <Fingerprint>3h36924tr8</Fingerprint>
-      <Integrity>6Tf7Uxpx9xCiti2AMx1hOYNSBTuGNd5Uu+i4UmtT5BE=</Integrity>
+      <Fingerprint>q8rgty6snv</Fingerprint>
+      <Integrity>Fq1Wm1X6c5rSL97BdJ+CjkIP5e8M38yO3Q11xoQtZD0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pizza_Star.3h36924tr8.bundle.scp.css'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pizza_Star.q8rgty6snv.bundle.scp.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\productFiles\81a2ea4d-43f9-4414-ae3d-765ce37be8aapizza2.png'))">
       <SourceType>Package</SourceType>

@@ -1,0 +1,139 @@
+﻿@using Pizza_Star.Models.Checkout
+@using Pizza_Star.VIewModel
+
+@model OrderViewModel
+@{
+    bool editMode = ViewBag.EditMode ?? false;
+}
+
+
+
+<div class="container">
+
+    <h5 class="mb-2 mt-1">
+        <i class="bi bi-box"></i> OrderID: @Model.Id
+    </h5>
+
+    @if (editMode)
+    {
+        <form asp-action="EditOrder" method="post" autocomplete="off">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-3">
+                <label asp-for="Fio" class="form-label">ФИО</label>
+                <input asp-for="Fio" class="form-control" />
+                <span asp-validation-for="Fio" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Phone" class="form-label">Телефон</label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="City" class="form-label">Город</label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Address" class="form-label">Адрес</label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Status" class="form-label">Статус</label>
+                <select asp-for="Status" asp-items="Html.GetEnumSelectList<OrderStatus>()" class="form-select"></select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Сохранить</button>
+            <a class="btn btn-secondary" asp-action="ViewOrder" asp-route-id="@Model.Id">Отмена</a>
+        </form>
+    }
+
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <tr><th>ФИО</th><td>@Model.Fio</td></tr>
+                <tr><th>Телефон</th><td>@Model.Phone</td></tr>
+                <tr><th>Email</th><td>@Model.Email</td></tr>
+                <tr><th>Город</th><td>@Model.City</td></tr>
+                <tr><th>Адрес</th><td>@Model.Address</td></tr>
+                <tr><th>Дата создания</th><td>@Model.CreatedAt.ToString("dd.MM.yy HH:mm")</td></tr>
+                <tr><th>Статус</th><td>@Model.Status</td></tr>
+            </table>
+        </div>
+
+        <h2 class="mt-4">Детали заказа</h2>
+        @if (Model.OrderDetails != null && Model.OrderDetails.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Продукт</th>
+                            <th>Количество</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var detail in Model.OrderDetails)
+                        {
+                            <tr>
+                                <td>@detail.Product.Name</td>
+                                <td>@detail.Quantity</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <p>Детали заказа не найдены.</p>
+        }
+
+        <div class="d-flex gap-2">
+            <a class="btn btn-primary" asp-action="ViewOrder" asp-route-id="@Model.Id" asp-route-edit="true">Редактировать</a>
+            <button class="btn btn-danger" onclick="deleteOrder(@Model.Id)">Удалить</button>
+            <a class="btn btn-primary" asp-action="ShowOrders">Назад</a>
+        </div>
+    }
+</div>
+@await Html.PartialAsync("_Modal", "Удалить выбранный заказ?")
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        function deleteOrder(orderId) {
+            $('#confirmModal').modal('show');
+            $('#btn-Yes').click(() => {
+                fetch(`/Order/DeleteOrder/${orderId}`, {
+                    method: 'DELETE',
+                    headers: { 'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() }
+                }).then(() => {
+                    $(`tr[data-rowid='${orderId}']`).remove();
+                    $('#confirmModal').modal('hide');
+                    window.location.href = '/Order/ShowOrders';
+                });
+            });
+            $('#btn-No').click(() => $('#confirmModal').modal('hide'));
+        }
+    </script>
+}

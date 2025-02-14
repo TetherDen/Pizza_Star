@@ -1,4 +1,4 @@
-﻿using Lesson_22_Pizza_Star.Models.Pages;
+﻿using Pizza_Star.Models.Pages;
 using Pizza_Star.Models.Checkout;
 
 namespace Pizza_Star.Interfaces
@@ -12,5 +12,8 @@ namespace Pizza_Star.Interfaces
         Task AddOrderAsync(Order order);
         Task EditOrderAsync(Order order);
         Task RemoveOrderAsync(Order order);
+
+        PagedList<Order> GetPendingAndProcessingOrders(QueryOptions options);
+        Task<Order> GetOrderWithDetailsAsync(int id);
     }
 }

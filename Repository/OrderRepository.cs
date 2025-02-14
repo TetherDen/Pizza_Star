@@ -1,5 +1,5 @@
-﻿using Lesson_22_Pizza_Star.Data;
-using Lesson_22_Pizza_Star.Models.Pages;
+﻿using Pizza_Star.Data;
+using Pizza_Star.Models.Pages;
 using Microsoft.EntityFrameworkCore;
 using Pizza_Star.Interfaces;
 using Pizza_Star.Models.Checkout;
@@ -47,5 +47,26 @@ namespace Pizza_Star.Repository
             _applicationContext.Orders.Remove(order);
             await _applicationContext.SaveChangesAsync();
         }
+
+        public PagedList<Order> GetPendingAndProcessingOrders(QueryOptions options)
+        {
+            var orders = _applicationContext.Orders
+                                            .Include(e => e.OrderDetails)
+                                            .ThenInclude(e => e.Product)
+                                            .Include(e => e.User)
+                                            .Where(e => e.Status == OrderStatus.Pending || e.Status == OrderStatus.Processing);
+
+            return new PagedList<Order>(orders, options);
+        }
+
+        public async Task<Order> GetOrderWithDetailsAsync(int id)
+        {
+            return await _applicationContext.Orders
+                .Include(order => order.OrderDetails)
+                .ThenInclude(detail => detail.Product)
+                .FirstOrDefaultAsync(order => order.Id == id);
+        }
+
+
     }
 }

@@ -24,30 +24,14 @@
 
     <!-- =======================================================================    -->
 
-@*     <form method="get" asp-action="Users" asp-controller="Panel" class="input-group align-items-center">
-        <label for="searchBy" class="fw-bold me-2 mb-0">Искать по:</label>
 
-        <select name="searchBy" id="searchBy" class="form-control form-select" style="max-width: 200px;">
-            <option value="name">Имени</option>
-            <option value="email">Email</option>
-            <option value="phone">Телефону</option>
-        </select>
-
-        <input type="text" name="search" value="@Context.Request.Query["search"]"
-               placeholder="Введите значение..." class="form-control input-lg mx-2" />
-
-        <span class="btn-search input-group-btn">
-            <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-search"></i> Найти</button>
-        </span>
-    </form>
- *@
 
 
     <div class="input-group themability-search">
         @{
 			ViewBag.searches = new string[] { "Email", "PhoneNumber"};
         }
-		@await Html.PartialAsync("_SearchOptions", Model);
+		@await Html.PartialAsync("_SearchOptions", Model)
     </div>
 
     <!-- =======================================================================    -->

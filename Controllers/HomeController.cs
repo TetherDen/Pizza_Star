@@ -1,6 +1,6 @@
-using Lesson_22_Pizza_Star.Data;
-using Lesson_22_Pizza_Star.Models;
-using Lesson_22_Pizza_Star.Models.Pages;
+using Pizza_Star.Data;
+using Pizza_Star.Models;
+using Pizza_Star.Models.Pages;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Security;
 using Pizza_Star.Interfaces;
 using Pizza_Star.Models;
-using Pizza_Star.VIewModel;
+using Pizza_Star.ViewModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Security.Claims;

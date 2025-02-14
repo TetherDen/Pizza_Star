@@ -1,8 +1,8 @@
-﻿using Lesson_22_Pizza_Star.Models;
+﻿using Pizza_Star.Models;
 using MailKit.Net.Smtp;
 using MimeKit;
 
-namespace Lesson_22_Pizza_Star.Data.Helpers
+namespace Pizza_Star.Data.Helpers
 {
     public class EmailSender
     {

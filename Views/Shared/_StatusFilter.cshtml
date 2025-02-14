@@ -1,0 +1,33 @@
+﻿@using Pizza_Star.Models.Checkout
+@using Pizza_Star.Models.Pages
+@model PagedList<Order>
+
+@{
+    var currentStatus = Model.Options.SearchPropertyName == "Status" ? Model.Options.SearchTerm : "";
+}
+
+<div class="input-group mb-3">
+    <span class="input-group-text">Статус:</span>
+
+    <select id="statusFilter" class="form-select">
+
+        @* <option value="">Все статусы</option> *@
+        <option value="AllStatusesFakeValue">Все статусы</option>
+
+        @foreach (var status in Enum.GetNames(typeof(OrderStatus)))
+        {
+			@* Можно добавить перевод статусов на другой язык через switch *@
+            var displayName = status switch
+            {
+                "Pending" => "Pending",
+                "Processing" => "Processing",
+                "Completed" => "Completed",
+                "Canceled" => "Canceled",
+                _ => status
+            };
+            <option value="@status" selected="@(currentStatus == status)">@displayName</option>
+        }
+    </select>
+
+    <button id="applyStatusFilter" type="button" class="btn btn-primary">Применить</button>
+</div>

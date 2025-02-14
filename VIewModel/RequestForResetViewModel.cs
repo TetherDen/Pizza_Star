@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-namespace Lesson_22_Pizza_Star.VIewModel
+namespace Lesson_22_Pizza_Star.ViewModel
 {
     public class RequestForResetViewModel
     {

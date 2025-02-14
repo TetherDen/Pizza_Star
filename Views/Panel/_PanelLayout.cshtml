@@ -25,11 +25,18 @@
                             @if (User.IsInRole("Admin"))
                             {
                                 <li>
+                                    <a asp-action="ShowOrders" asp-controller="Order" class="list-group-item">Заказы</a>
+                                </li>
+
+                                <li>
                                     <a asp-action="Users" asp-controller="Panel" class="list-group-item">Пользователи</a>
                                 </li>
+
                                 <li>
                                     <a asp-action="Statistics" asp-controller="Panel" class="list-group-item">Статистика</a>
                                 </li>
+
+
                             }
                         </ul>
                     </div>

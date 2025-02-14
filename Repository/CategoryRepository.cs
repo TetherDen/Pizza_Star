@@ -1,5 +1,5 @@
-﻿using Lesson_22_Pizza_Star.Data;
-using Lesson_22_Pizza_Star.Models.Pages;
+﻿using Pizza_Star.Data;
+using Pizza_Star.Models.Pages;
 using Microsoft.EntityFrameworkCore;
 using Pizza_Star.Interfaces;
 using Pizza_Star.Models;

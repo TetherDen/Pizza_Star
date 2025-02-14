@@ -1,10 +1,11 @@
-﻿using Lesson_22_Pizza_Star.Models;
+﻿using Pizza_Star.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Pizza_Star.Models;
 using Pizza_Star.Models.Checkout;
 
-namespace Lesson_22_Pizza_Star.Data
+namespace Pizza_Star.Data
 {
     public class ApplicationContext : IdentityDbContext<User>
     {
@@ -19,7 +20,7 @@ namespace Lesson_22_Pizza_Star.Data
             : base(options)
         {
             //Database.EnsureDeleted();
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
 
@@ -31,6 +32,7 @@ namespace Lesson_22_Pizza_Star.Data
 
 
             base.OnModelCreating(modelBuilder);
+
         }
     }
 }

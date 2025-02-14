@@ -2,7 +2,7 @@
 using Pizza_Star.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace Pizza_Star.VIewModel
+namespace Pizza_Star.ViewModel
 {
     public class ProductViewModel
     {

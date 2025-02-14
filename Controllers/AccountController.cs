@@ -1,6 +1,6 @@
-﻿using Lesson_22_Pizza_Star.Data.Helpers;
-using Lesson_22_Pizza_Star.Models;
-using Lesson_22_Pizza_Star.VIewModel;
+﻿using Pizza_Star.Data.Helpers;
+using Pizza_Star.Models;
+using Lesson_22_Pizza_Star.ViewModel;
 using Lesson_22_Pizza_Star.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

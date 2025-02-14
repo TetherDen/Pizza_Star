@@ -1,6 +1,6 @@
 ﻿using Pizza_Star.Models;
 
-namespace Pizza_Star.VIewModel
+namespace Pizza_Star.ViewModel
 {
     public class CurrentProductViewModel
     {
