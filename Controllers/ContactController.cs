@@ -31,29 +31,6 @@ namespace Pizza_Star.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Contact(EmailContactFormViewModel model)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return View(model);
-            //}
-
-            //var settings = await _context.ContactFormSettings.FirstOrDefaultAsync();
-            //if (settings == null)
-            //{
-            //    ModelState.AddModelError("", "Ошибка отправки. Администратор не настроил получателя.");
-            //    return View(model);
-            //}
-
-            //bool emailSent = _emailSender.SendContactMessage(model, settings.ContactEmail);
-
-            //if (emailSent)
-            //{
-            //    TempData["SuccessMessage"] = "Your message has been sent Successfully!";
-            //    return RedirectToAction("Contact");
-            //}
-
-            //ModelState.AddModelError("", "Error sending message. Please try again later.");
-            //return View(model);
-
             if(ModelState.IsValid)
             {
                 var settings = await _context.ContactFormSettings.FirstOrDefaultAsync();
@@ -91,6 +68,7 @@ namespace Pizza_Star.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ContactSettings(ContactFormSettings model)
         {
