@@ -1,6 +1,7 @@
 ﻿using Pizza_Star.Models;
 using MailKit.Net.Smtp;
 using MimeKit;
+using Pizza_Star.VIewModel;
 
 namespace Pizza_Star.Data.Helpers
 {
@@ -109,6 +110,35 @@ namespace Pizza_Star.Data.Helpers
         }
 
 
+
+
+        public bool SendContactMessage(EmailContactFormViewModel model, string adminEmail)
+        {
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress(model.Name, model.Email));
+            message.To.Add(new MailboxAddress("Administrator", adminEmail));
+            message.Subject = "Новое сообщение с контактной формы";
+            message.Body = new TextPart("html")
+            {
+                Text = $@"<html>
+                <body>
+                    <h2>Новое сообщение от посетителя сайта</h2>
+                    <p><strong>Имя:</strong> {model.Name}</p>
+                    <p><strong>Email:</strong> {model.Email}</p>
+                    <p><strong>Телефон:</strong> {model.Phone}</p>
+                    <h3>Сообщение:</h3>
+                    <p>{model.Message}</p>
+                </body>
+                </html>"
+            };
+
+            return Send(message);
+        }
+
+
+
+
+
         private bool Send(MimeMessage message)
         {
             using (var client = new SmtpClient())
@@ -133,6 +163,11 @@ namespace Pizza_Star.Data.Helpers
             }
             return false;
         }
+
+
+
+
+
     }
 
 }

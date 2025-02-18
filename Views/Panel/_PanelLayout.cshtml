@@ -9,6 +9,7 @@
 
 
             <aside id="column-left" class="col-sm-3">
+
                 <div class="category-content">
                     <div class="box-category">
                         <h3 class="toggled relative">Настройки</h3>
@@ -37,11 +38,33 @@
                                 </li>
 
 
+                                <li>
+                                    <a asp-action="ContactSettings" asp-controller="Contact" class="list-group-item">Настройки обратной связи</a>
+                                </li>
+                                
+
                             }
                         </ul>
                     </div>
                 </div>
+
+
+                <div class="category-content">
+                    <div class="box-category">
+                        <h3 class="toggled relative">Информация</h3>
+                        <ul class="list-unstyled parent" id="select-category">
+
+                            <li>
+                                <a asp-action="Contact" asp-controller="Contact" class="list-group-item">Связаться с нами</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
             </aside>
+
+
 
 
             <div id="content" class="col-sm-9  all-blog">
@@ -51,7 +74,10 @@
 
 
         </div>
+
     </div>
+
+
 </div>
 
 <!-- Секция для подгрузки скриптов из других представлений -->

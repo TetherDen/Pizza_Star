@@ -1,0 +1,46 @@
+﻿@model ContactFormSettings
+
+@{
+    Layout = "~/Views/Panel/_PanelLayout.cshtml";
+}
+
+<div class="breadcrumb-main">
+    <div class="breadcrumb-container clearfix">
+        <h1 class="page-title">Настройки контактной формы</h1>
+        <ul class="breadcrumb">
+            <li><a asp-controller="panel" asp-action="Index">Главная</a></li>
+            <li><a asp-controller="Contact" asp-action="Contact">Настройки контактной формы</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="container my-4">
+    <h2>Настройки контактной формы</h2>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <form asp-action="ContactSettings" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="ContactEmail">Email для получения сообщений</label>
+            <input asp-for="ContactEmail" type="text" class="form-control" />
+            <span asp-validation-for="ContactEmail" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-1">Сохранить</button>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

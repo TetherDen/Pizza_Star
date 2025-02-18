@@ -64,6 +64,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Contact/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Contact/ContactSettings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxDb250YWN0U2V0dGluZ3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Dish/CreateProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzaFxDcmVhdGVQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -150,6 +158,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Shared/_ItemsFilter.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9JdGVtc0ZpbHRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Shared/_LocationPanel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2NhdGlvblBhbmVsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/admin/source/repos/ASP.NET_Core_Dev/Pizza_Star/Views/Shared/_Modal.cshtml]

@@ -5,6 +5,7 @@ using Lesson_22_Pizza_Star.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Pizza_Star.Services;
 
 namespace Lesson_22_Pizza_Star.Controllers
 {
@@ -13,12 +14,14 @@ namespace Lesson_22_Pizza_Star.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly EmailSender _emailSender;
+        private readonly IConfiguration _configuration;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, EmailSender emailSender)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, EmailSender emailSender, IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
+            _configuration = configuration;
         }
 
 
@@ -113,6 +116,8 @@ namespace Lesson_22_Pizza_Star.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+
+            ViewData["GoogleReCaptchaSiteKey"] = _configuration["GoogleReCaptcha:SiteKey"];
             return View();
         }
 
@@ -120,8 +125,16 @@ namespace Lesson_22_Pizza_Star.Controllers
         [Route("register")]
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public async Task<IActionResult> Register(RegisterViewModel model, [FromForm] string gRecaptchaResponse, [FromServices] GoogleReCaptchaService captchaService)
         {
+            ViewData["GoogleReCaptchaSiteKey"] = _configuration["GoogleReCaptcha:SiteKey"];
+            if (!await captchaService.VerifyAsync(gRecaptchaResponse))
+            {
+                ModelState.AddModelError("", "Ошибка проверки reCAPTCHA.");
+                return View(model);
+            }
+
+
             if (ModelState.IsValid)
             {
                 User user = new User { Email = model.Email, UserName = model.Email, Year = model.Year, PhoneNumber = model.Phone };
@@ -144,6 +157,8 @@ namespace Lesson_22_Pizza_Star.Controllers
                     }
                 }
             }
+
+
             return View(model);
         }
 

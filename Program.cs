@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Pizza_Star.Interfaces;
 using Pizza_Star.Repository;
+using Pizza_Star.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -63,6 +64,10 @@ builder.Services.AddScoped<IProduct, ProductRepository>();
 builder.Services.AddScoped(e => CartRepository.GetCart(e));
 //Подключаем сервис для работы с заказами
 builder.Services.AddTransient<IOrder, OrderRepository>();
+// ReCaptcha Google service
+builder.Services.AddHttpClient<GoogleReCaptchaService>();
+
+
 
 //===========================
 

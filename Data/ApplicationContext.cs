@@ -15,12 +15,13 @@ namespace Pizza_Star.Data
         public DbSet<ShopCartItem> ShopCartItems { get; set; } = null!;
         public DbSet<Order> Orders { get; set; } = null!;
         public DbSet<OrderDetails> OrderDetails { get; set; } = null!;
+        public DbSet<ContactFormSettings> ContactFormSettings { get; set; } = null!;
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
             //Database.EnsureDeleted();
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
 
