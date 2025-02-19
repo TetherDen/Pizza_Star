@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole>
+
+@{
+    Layout = "~/Views/Panel/_PanelLayout.cshtml";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="breadcrumb-main">
+    <div class="breadcrumb-container clearfix">
+        <h1 class="page-title">Управление ролями</h1>
+        <ul class="breadcrumb">
+            <li><a asp-action="Index" asp-controller="Panel">Главная</a></li>
+            <li><a asp-action="Index" asp-controller="Role">Роли</a></li>
+        </ul>
+    </div>
+</div>
+
+<div>
+    <div class="mb-3">
+        <a class="btn btn-primary" asp-action="Create" asp-controller="Role">Создать роль</a>
+    </div>
+
+    <div class="p-3 mb-4 bg-light rounded-3 ovx table-responsive">
+        <table class="table">
+            <tr>
+                <th>Роль</th>
+                <th>Действия</th>
+            </tr>
+            @foreach (var role in Model)
+            {
+                <tr data-rowid="@role.Id">
+                    <td>@role.Name</td>
+                    <td>
+                        <div class="d-flex gap-1">
+                            <a class="btn btn-sm btn-primary p-1" asp-action="Edit" asp-controller="Role" asp-route-id="@role.Id">Редактировать</a>
+                            <button onclick="deleteRole('@role.Id')" class="btn btn-sm btn-danger p-1">Удалить</button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+@await Html.PartialAsync("_Modal", "Удалить выбранную роль?")
+
+@section Scripts {
+    <script>
+        function deleteRole(roleId) {
+            $('#confirmModal').modal('show');
+            $('#btn-Yes').click(() => {
+                fetch(`/Role/Delete/${roleId}`, {
+                    method: 'POST',
+                    headers: { 'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() }
+                }).then(() => {
+                    $(`tr[data-rowid='${roleId}']`).remove();
+                    $('#confirmModal').modal('hide');
+                    window.location.href = '/Role/Index';
+                });
+            });
+            $('#btn-No').click(() => $('#confirmModal').modal('hide'));
+        }
+    </script>
+}

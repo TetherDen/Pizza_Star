@@ -34,6 +34,9 @@ builder.Services.AddIdentity<User, IdentityRole>(opts =>
     opts.Password.RequireUppercase = false; // требуются ли символы в верхнем регистре
     opts.Password.RequireDigit = false; // требуются ли цифры
 
+    opts.Lockout.MaxFailedAccessAttempts = 5; // максимальное количество неудачных попыток входа
+    opts.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5); // время блокировки учетной записи
+
 
 })
     .AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
@@ -72,6 +75,9 @@ builder.Services.AddHttpClient<GoogleReCaptchaService>();
 //===========================
 
 var app = builder.Build();
+
+// Обработка 404 ошибки и редирект на Home/Index
+app.UseStatusCodePagesWithRedirects("/");
 
 app.UseSession();
 

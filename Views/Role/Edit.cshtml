@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IdentityRole
+
+@{
+    Layout = "~/Views/Panel/_PanelLayout.cshtml";
+}
+
+<div class="breadcrumb-main">
+    <div class="breadcrumb-container clearfix">
+        <h1 class="page-title">Редактирование роли</h1>
+
+        <ul class="breadcrumb">
+            <li><a asp-action="Index" asp-controller="Panel">Главная</a></li>
+            <li><a asp-action="Index" asp-controller="Role">Роли</a></li>
+            <li>Редактирование роли</li>
+        </ul>
+
+    </div>
+</div>
+
+<div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label for="roleName">Название роли</label>
+            <input type="text" id="roleName" name="roleName" class="form-control" value="@Model.Name" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Обновить роль</button>
+    </form>
+
+</div>

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Pizza_Star.Services;
+using Microsoft.Extensions.Options;
 
 namespace Lesson_22_Pizza_Star.Controllers
 {
@@ -15,13 +16,15 @@ namespace Lesson_22_Pizza_Star.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly EmailSender _emailSender;
         private readonly IConfiguration _configuration;
+        private readonly IdentityOptions _identityOptions;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, EmailSender emailSender, IConfiguration configuration)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, EmailSender emailSender, IConfiguration configuration, IOptions<IdentityOptions> identityOptions)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _configuration = configuration;
+            _identityOptions = identityOptions.Value;
         }
 
 
@@ -39,6 +42,35 @@ namespace Lesson_22_Pizza_Star.Controllers
 
 
 
+        //[Route("login")]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Login(LoginViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, true);
+        //        if (result.Succeeded)
+        //        {
+        //            // проверяем, принадлежит ли URL приложению
+        //            if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+        //            {
+        //                return Redirect(model.ReturnUrl);
+        //            }
+        //            else
+        //            {
+        //                return RedirectToAction("Index", "Home");
+        //            }
+        //        }
+        //        else
+        //        {
+        //            ModelState.AddModelError("", "Неправильный логин и (или) пароль");
+        //        }
+        //    }
+        //    return View(model);
+        //}
+
+
         [Route("login")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -46,7 +78,20 @@ namespace Lesson_22_Pizza_Star.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if (user == null)
+                {
+                    ModelState.AddModelError("", "Неправильный логин и (или) пароль");
+                    return View(model);
+                }
+
+                if (await _userManager.IsLockedOutAsync(user))
+                {
+                    ModelState.AddModelError("", $"Ваш аккаунт временно заблокирован на {_identityOptions.Lockout.DefaultLockoutTimeSpan.TotalMinutes} минут.");
+                    return View(model);
+                }
+
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, true);
                 if (result.Succeeded)
                 {
                     // проверяем, принадлежит ли URL приложению
@@ -54,18 +99,37 @@ namespace Lesson_22_Pizza_Star.Controllers
                     {
                         return Redirect(model.ReturnUrl);
                     }
-                    else
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
+                    return RedirectToAction("Index", "Home");
+                }
+
+                if (result.IsLockedOut)
+                {
+                    ModelState.AddModelError("", $"Ваш аккаунт заблокирован на {_identityOptions.Lockout.DefaultLockoutTimeSpan.TotalMinutes} минут.");
+                    return View(model);
+                }
+
+                // Получаем актуальное состояние пользователя после попытки входа
+                user = await _userManager.FindByEmailAsync(model.Email);
+                int maxFailedAttempts = _identityOptions.Lockout.MaxFailedAccessAttempts;
+
+                // Правильный подсчет оставшихся попыток
+                int attemptsLeft = maxFailedAttempts - user.AccessFailedCount;
+
+                if (attemptsLeft <= 0)
+                {
+                    await _userManager.SetLockoutEndDateAsync(user, DateTime.Now.Add(_identityOptions.Lockout.DefaultLockoutTimeSpan));
+                    ModelState.AddModelError("", $"Ваш аккаунт заблокирован на {_identityOptions.Lockout.DefaultLockoutTimeSpan.TotalMinutes} минут.");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Неправильный логин и (или) пароль");
+                    ModelState.AddModelError("", $"Неправильный логин и (или) пароль. Осталось попыток: {attemptsLeft}");
                 }
             }
             return View(model);
         }
+
+
+
 
 
         [HttpPost]
